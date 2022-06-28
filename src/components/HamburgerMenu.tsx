@@ -33,7 +33,7 @@ const StyledHamburgerMenuButton = styled.button`
     top: 13px;
   }
 `;
-// type Props = {width? : number, height? : number};
+
 const HamburgerMenu = () => {
   return (
     <StyledHamburgerMenuButton className="hambuger-menu-button">

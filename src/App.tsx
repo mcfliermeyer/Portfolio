@@ -1,15 +1,35 @@
 import React from "react";
-import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 import Theme from "./theme/Theme";
 import { NavBar } from "./components/NavBar";
-import "./App.css";
+import SvgAndPhoto from "./components/SvgAndPhoto";
+import NewSection from "./components/NewSection";
+import GlobalStyle from "./theme/globalStyles";
+
+const StyledApp = styled.div`
+  .about-me-summary {
+    margin-top: 1.5rem;
+    max-width: 85%;
+    margin-inline: auto;
+  }
+`;
 
 function App() {
   return (
     <Theme>
-      <div className="App">
+      <StyledApp className="App">
+        <GlobalStyle />
         <NavBar />
-      </div>
+        <SvgAndPhoto />
+        <NewSection title="I am" subtitle="a web developer" />
+        <p className="about-me-summary">
+          Hello, my name is Mark Meyer. I have a passion for troubleshooting and
+          problem solving. Web app development is filled with tiny puzzles for
+          me to figure out every day. I recently decided to take my passion for
+          problem solving and move it into a career. So here I am, searching for
+          more puzzles to solve.
+        </p>
+      </StyledApp>
     </Theme>
   );
 }
