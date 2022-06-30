@@ -5,22 +5,12 @@ const StyledPhoto = styled.div`
   height: auto;
   margin: 75px;
   margin-inline: auto;
-  background-color: green;
   transform: rotate(5deg);
-
   box-shadow: 0 0 0.3rem grey;
-  /* 	x,y,blur,spread,color */
-  /* box-shadow: -8px 12px 12px -12px grey, 8px 12px 12px -12px grey,
-    8px -8px 12px -12px #8080807f, -8px -8px 12px -12px #8080807f; */
-  /* border-bottom-right-radius: 20% 5px;
-  border-bottom-left-radius: 20% 5px; */
-  /* filter: drop-shadow(0 0 0.5rem grey); */
-  /* drop-shadow(offset-x offset-y blur-radius color) */
-  position: relative;
+
   .psuedo {
     background-color: white;
   }
-  /* transform-style: preserve-3d; */
   .psuedo::before {
     content: "";
     position: absolute;

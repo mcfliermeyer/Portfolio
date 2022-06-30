@@ -20,6 +20,7 @@ const StyledNavBar = styled.nav`
   min-width: max-content;
   position: sticky;
   top: 0;
+  z-index: 1;
   border-bottom: 1px black solid;
   svg {
     position: absolute;

@@ -5,12 +5,14 @@ import { NavBar } from "./components/NavBar";
 import SvgAndPhoto from "./components/SvgAndPhoto";
 import NewSection from "./components/NewSection";
 import GlobalStyle from "./theme/globalStyles";
+import ProjectSection from "./components/ProjectSection";
 
 const StyledApp = styled.div`
   .about-me-summary {
     margin-top: 1.5rem;
     max-width: 85%;
     margin-inline: auto;
+    margin-bottom: 0%;
   }
 `;
 
@@ -29,6 +31,12 @@ function App() {
           problem solving and move it into a career. So here I am, searching for
           more puzzles to solve.
         </p>
+        <NewSection title="Projects" />
+        <ProjectSection
+          title={"Manager Locator"}
+          summary={"Webapp made to track my sneaky manager in the field. text to fill up some space here with real words to check spacing ok lol omg what is happening here"}
+          techStack={"Tech Stack Used"}
+        />
       </StyledApp>
     </Theme>
   );
