@@ -1,12 +1,7 @@
 import React from "react";
 
-export const LogoIconSVG = ({
-  height = "50px",
-  width = "50px",
-  viewBox = "0 0 100 100",
-  ...props
-}: React.SVGProps<SVGSVGElement>) => (
-  <svg width={width} height={height} viewBox={viewBox}>
+export const LogoIconSVG = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg width={props.width} height={props.height} viewBox={props.viewBox}>
     <circle
       style={{ stroke: "#000000", fill: "#fe7868", strokeOpacity: 1 }}
       cx="145"

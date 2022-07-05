@@ -6,6 +6,7 @@ import SvgAndPhoto from "./components/SvgAndPhoto";
 import NewSection from "./components/NewSection";
 import GlobalStyle from "./theme/globalStyles";
 import ProjectSection from "./components/ProjectSection";
+import Projects from "./components/Projects";
 
 const StyledApp = styled.div`
   .about-me-summary {
@@ -19,24 +20,19 @@ const StyledApp = styled.div`
 function App() {
   return (
     <Theme>
-      <StyledApp className="App">
+      <StyledApp>
         <GlobalStyle />
         <NavBar />
         <SvgAndPhoto />
         <NewSection title="I am" subtitle="a web developer" />
         <p className="about-me-summary">
-          Hello, my name is Mark Meyer. I have a passion for troubleshooting and
+          Hello, my name is Mark Meyer. I am a web developer. I have a passion for troubleshooting and
           problem solving. Web app development is filled with tiny puzzles for
           me to figure out every day. I recently decided to take my passion for
           problem solving and move it into a career. So here I am, searching for
           more puzzles to solve.
         </p>
-        <NewSection title="Projects" />
-        <ProjectSection
-          title={"Manager Locator"}
-          summary={"Webapp made to track my sneaky manager in the field. text to fill up some space here with real words to check spacing ok lol omg what is happening here"}
-          techStack={"Tech Stack Used"}
-        />
+        <Projects />
       </StyledApp>
     </Theme>
   );

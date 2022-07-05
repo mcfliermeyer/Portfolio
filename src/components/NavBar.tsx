@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import styled from "styled-components";
-import { LogoIconSVG } from "../resources/LogoIcon";
+import { LogoIconSVG } from "./LogoIcon";
 import HamburgerMenu from "./HamburgerMenu";
 
 interface NavProps {
@@ -60,7 +60,7 @@ const StyledNavBar = styled.nav`
   }
 `;
 
-export const NavBar: FunctionComponent<NavProps> = ({}) => {
+export const NavBar: FunctionComponent<NavProps> = () => {
   return (
     <StyledNavBar>
       <LogoIconSVG height={130} width={130} viewBox="-5 -5 320 320" />

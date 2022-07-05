@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Plus Jakarta Sans";
     text-align: center;
   }
-  h1 {
+  h1, h2, h3 {
     margin: 0;
   }
   p {

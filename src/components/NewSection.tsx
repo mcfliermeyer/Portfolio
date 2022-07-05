@@ -5,7 +5,7 @@ const StyledNewSection = styled.div`
   margin-bottom: 1.2rem;
   .title {
     font-family: "Montserrat";
-    font-weight: 800;
+    font-weight: 700;
     font-size: 40px;
     color: #fe7868;
     margin: 0;
