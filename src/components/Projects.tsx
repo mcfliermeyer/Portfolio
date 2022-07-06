@@ -7,10 +7,16 @@ import tailwindLogo from "../resources/tailwindcss.svg";
 import reactLogo from "../resources/react.svg";
 import typescriptLogo from "../resources/typescript.svg";
 import styledComponentsLogo from "../resources/styledComponents.svg";
+import styled from "styled-components"
+
+const StyledProjects = styled.div`
+  /* display: flex;
+  flex-direction: column; */
+`
 
 const Projects = () => {
   return (
-    <div>
+    <StyledProjects>
       <NewSection title={"Projects"} />
       <ProjectSection
         title={"Manager Locator"}
@@ -33,7 +39,7 @@ const Projects = () => {
         }
         techStack={[typescriptLogo, styledComponentsLogo]}
       /> */}
-    </div>
+    </StyledProjects>
   );
 };
 export default Projects;

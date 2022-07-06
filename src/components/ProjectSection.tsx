@@ -7,6 +7,9 @@ const StyledProjectSection = styled.section`
   color: white;
   border-bottom: 0.1px white solid;
   margin-inline: auto;
+  display: block;
+  /* min-height: 40vh; */
+  min-width: 100%;
   .title {
     font-size: 24px;
     font-weight: 600;
@@ -28,8 +31,8 @@ const StyledProjectSection = styled.section`
   }
   /* css card flip logic  */
   perspective: 2000px;
-  min-height: max-content;
   .flipper {
+    position: relative;
     transform: rotateY(180deg);
   }
   #flipper {
@@ -74,8 +77,10 @@ const ProjectSection = ({ title, summary, techStack }: Props) => {
 
   const handleDetailClick = () => {
     setIsFlipped(!isFlipped);
+    // const cardElement: React.MutableRefObject<HTMLDivElement> = cardEl.current?
     if (cardEl.current) {
-      setCardHeight(() => {//hacked up way, looked at padding in styled then converted rem to px to get actual height
+      setCardHeight(() => {
+        //hacked up way, looked at padding in styled then converted rem to px to get actual height
         if (cardEl.current) {
           return cardEl.current.clientHeight - convertRemToPixels(1.5 * 2);
         } else return 0;
@@ -83,8 +88,24 @@ const ProjectSection = ({ title, summary, techStack }: Props) => {
     }
   };
 
+  useLayoutEffect(() => {
+    if (cardEl.current) {
+      setCardHeight(() => {
+        //hacked up way, looked at padding in styled then converted rem to px to get actual height
+        if (cardEl.current) {
+          console.log(
+            cardEl.current.clientHeight - convertRemToPixels(1.5 * 2)
+          );
+          return cardEl.current.clientHeight;
+        } else return 0;
+      });
+    }
+  });
+
   return (
-    <StyledProjectSection>
+    <StyledProjectSection
+    style={{ minHeight: `${cardHeight}px` }}
+    >
       <div
         className={isFlipped ? "unflipper" : "flipper"}
         id="flipper"
@@ -107,11 +128,8 @@ const ProjectSection = ({ title, summary, techStack }: Props) => {
             more detail
           </button>
         </div>
-        <div
-          className="back"
-          style={{ maxHeight: `${cardHeight}px`, minHeight: `${cardHeight}px` }}
-        >
-          <h1 className="">this is the bak</h1>
+        <div className="back" style={{maxHeight: `${cardHeight}px`, minHeight: `${cardHeight}px` }}>
+          <h1 className="">this is the bakkkk</h1>
           <button
             className="more-detail-btn"
             onClick={() => handleDetailClick()}
