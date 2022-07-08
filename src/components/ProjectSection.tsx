@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import TechStackIconWrapper from "./TechStackIconWrapper";
-import { useState, useRef, useLayoutEffect, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const StyledProjectSection = styled.section`
-  /* background-color: ${(props) => props.theme.colors.primaryPinkish}; */
   color: white;
   border-bottom: 0.1px white solid;
   margin-inline: auto;
@@ -46,7 +45,6 @@ const StyledProjectSection = styled.section`
       left: 0;
       right: 0;
       margin-inline: auto;
-      /* background-color: ${(props) => props.theme.colors.primaryPinkish}; */
     }
     .front {
       z-index: 2;
@@ -55,6 +53,7 @@ const StyledProjectSection = styled.section`
     }
     .back {
       transform: rotateY(180deg);
+      padding: 1.5rem 1.6rem;
     }
   }
 `;
@@ -63,8 +62,9 @@ type Props = {
   title: String;
   summary: String;
   techStack: string[];
+  projectDetails: String;
 };
-const ProjectSection = ({ title, summary, techStack }: Props) => {
+const ProjectSection = ({ title, summary, techStack, projectDetails }: Props) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [cardHeight, setCardHeight] = useState(0);
   const cardEl = useRef<HTMLDivElement>();
@@ -74,13 +74,9 @@ const ProjectSection = ({ title, summary, techStack }: Props) => {
   };
 
   useEffect(() => {
-    console.log("layout firing again");
     if (cardEl.current) {
       setCardHeight(() => {
         if (cardEl.current) {
-          console.log(
-            `from uselayouteffect height: ${cardEl.current.clientHeight}`
-          );
           return cardEl.current.clientHeight + convertRemToPixels(1.5 * 2);
         } else return 0;
       });
@@ -98,7 +94,6 @@ const ProjectSection = ({ title, summary, techStack }: Props) => {
             if (el) cardEl.current = el;
           }}
           className="front"
-          // style={{ minHeight: `${cardHeight}px` }}
         >
           <h1 className="title">{title}</h1>
           <p className="summary">{summary}</p>
@@ -113,14 +108,14 @@ const ProjectSection = ({ title, summary, techStack }: Props) => {
         </div>
         <div
           className="back"
-          // style={{ minHeight: `${cardHeight}px` }}
         >
-          <h1 className="">this is the bakkkk</h1>
+          <h1 className="project-details-title title">Project Details</h1>
+          <p className="project-details summary">{projectDetails}</p>
           <button
             className="more-detail-btn"
             onClick={() => handleDetailClick()}
           >
-            more detail
+            go back
           </button>
         </div>
       </div>
@@ -132,8 +127,5 @@ ProjectSection.Styled = StyledProjectSection;
 export default ProjectSection;
 
 function convertRemToPixels(rem: number) {
-  console.log(
-    rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
-  );
   return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
