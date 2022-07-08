@@ -32,13 +32,13 @@ const Projects = () => {
         }
         techStack={[reactLogo, cssLogo, htmlLogo]}
       />
-      {/* <ProjectSection
+      <ProjectSection
         title={"This Portfolio"}
         summary={
           "Of course this portfolio. I think every project exposes a web developer to new tech, and new ways of doing things. This portfolio is not an exception."
         }
         techStack={[typescriptLogo, styledComponentsLogo]}
-      /> */}
+      />
     </StyledProjects>
   );
 };

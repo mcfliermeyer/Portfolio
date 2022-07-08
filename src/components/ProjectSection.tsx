@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import TechStackIconWrapper from "./TechStackIconWrapper";
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect, useEffect } from "react";
 
 const StyledProjectSection = styled.section`
-  background-color: ${(props) => props.theme.colors.primaryPinkish};
+  /* background-color: ${(props) => props.theme.colors.primaryPinkish}; */
   color: white;
   border-bottom: 0.1px white solid;
   margin-inline: auto;
   display: block;
-  /* min-height: 40vh; */
   min-width: 100%;
   .title {
     font-size: 24px;
@@ -25,7 +24,6 @@ const StyledProjectSection = styled.section`
     font-size: 16px;
     font-weight: 600;
     padding: 1rem 2rem;
-    margin: auto auto 5px;
     border: none;
     box-shadow: 0 3px 2px 1px rgb(128, 128, 128, 0.3);
   }
@@ -35,13 +33,11 @@ const StyledProjectSection = styled.section`
     position: relative;
     transform: rotateY(180deg);
   }
-  #flipper {
-    position: relative;
-  }
   .flipper,
   .unflipper {
     transition: 0.6s;
     transform-style: preserve-3d;
+    background-color: ${(props) => props.theme.colors.primaryPinkish};
     .front,
     .back {
       backface-visibility: hidden;
@@ -50,72 +46,59 @@ const StyledProjectSection = styled.section`
       left: 0;
       right: 0;
       margin-inline: auto;
-      background-color: ${(props) => props.theme.colors.primaryPinkish};
-      padding: 1.5rem 1.6rem;
+      /* background-color: ${(props) => props.theme.colors.primaryPinkish}; */
     }
     .front {
       z-index: 2;
       transform: rotateY(0deg);
+      padding: 1.5rem 1.6rem;
     }
     .back {
       transform: rotateY(180deg);
     }
   }
 `;
-function convertRemToPixels(rem: number) {
-  return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
-}
+
 type Props = {
   title: String;
   summary: String;
   techStack: string[];
 };
 const ProjectSection = ({ title, summary, techStack }: Props) => {
-  const [isFlipped, setIsFlipped] = useState(true);
+  const [isFlipped, setIsFlipped] = useState(false);
   const [cardHeight, setCardHeight] = useState(0);
   const cardEl = useRef<HTMLDivElement>();
 
   const handleDetailClick = () => {
     setIsFlipped(!isFlipped);
-    // const cardElement: React.MutableRefObject<HTMLDivElement> = cardEl.current?
-    if (cardEl.current) {
-      setCardHeight(() => {
-        //hacked up way, looked at padding in styled then converted rem to px to get actual height
-        if (cardEl.current) {
-          return cardEl.current.clientHeight - convertRemToPixels(1.5 * 2);
-        } else return 0;
-      });
-    }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
+    console.log("layout firing again");
     if (cardEl.current) {
       setCardHeight(() => {
-        //hacked up way, looked at padding in styled then converted rem to px to get actual height
         if (cardEl.current) {
           console.log(
-            cardEl.current.clientHeight - convertRemToPixels(1.5 * 2)
+            `from uselayouteffect height: ${cardEl.current.clientHeight}`
           );
-          return cardEl.current.clientHeight;
+          return cardEl.current.clientHeight + convertRemToPixels(1.5 * 2);
         } else return 0;
       });
     }
-  });
+  },[]);
 
   return (
-    <StyledProjectSection
-    style={{ minHeight: `${cardHeight}px` }}
-    >
+    <StyledProjectSection>
       <div
-        className={isFlipped ? "unflipper" : "flipper"}
-        id="flipper"
-        style={{ minHeight: { cardHeight } + "px" }}
+        className={isFlipped ? "flipper" : "unflipper"}
+        style={{ height: `${cardHeight}px` }}
       >
         <div
           ref={(el) => {
             if (el) cardEl.current = el;
           }}
           className="front"
+          // style={{ minHeight: `${cardHeight}px` }}
         >
           <h1 className="title">{title}</h1>
           <p className="summary">{summary}</p>
@@ -128,7 +111,10 @@ const ProjectSection = ({ title, summary, techStack }: Props) => {
             more detail
           </button>
         </div>
-        <div className="back" style={{maxHeight: `${cardHeight}px`, minHeight: `${cardHeight}px` }}>
+        <div
+          className="back"
+          // style={{ minHeight: `${cardHeight}px` }}
+        >
           <h1 className="">this is the bakkkk</h1>
           <button
             className="more-detail-btn"
@@ -144,3 +130,10 @@ const ProjectSection = ({ title, summary, techStack }: Props) => {
 
 ProjectSection.Styled = StyledProjectSection;
 export default ProjectSection;
+
+function convertRemToPixels(rem: number) {
+  console.log(
+    rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
+  );
+  return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+}
