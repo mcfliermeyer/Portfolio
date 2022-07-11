@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const StyledNewSection = styled.div`
-  margin-top: 40px;
+  margin-top: 1.2rem;
   margin-bottom: 1.2rem;
   .title {
     font-family: "Montserrat";
