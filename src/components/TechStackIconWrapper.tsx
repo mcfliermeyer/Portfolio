@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledTechStackIconWrapper = styled.div`
-  padding-bottom: 1rem;
+  padding-bottom: .5rem;
   padding-top: 0.3rem;
   .icon {
     width: 40px;
@@ -12,6 +12,7 @@ const StyledTechStackIconWrapper = styled.div`
 
 type Props = {
   icons: string[];
+  className?: string;
 };
 const TechStackIconWrapper = (props: Props) => {
   return (

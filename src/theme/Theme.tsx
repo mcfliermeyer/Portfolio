@@ -5,6 +5,7 @@ const theme = {
   colors: {
     primaryBlue: "#7FCACB",
     primaryPinkish: "#FE7868",
+    primaryYellow: "#ffc753",
   },
   fonts: {
     nameTitleFont: "Montserrat",

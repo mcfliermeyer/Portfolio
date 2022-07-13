@@ -8,8 +8,11 @@ import reactLogo from "../resources/react.svg";
 import typescriptLogo from "../resources/typescript.svg";
 import styledComponentsLogo from "../resources/styledComponents.svg";
 import styled from "styled-components";
+import FlipCard from "./FlipCard";
+import TechStackIconWrapper from "./TechStackIconWrapper";
 
-const StyledProjects = styled.div``;
+const StyledProjects = styled.div`
+`;
 
 function quizLiveDemo() {
   return <a
@@ -21,16 +24,18 @@ function quizLiveDemo() {
 const Projects = () => {
   return (
     <StyledProjects>
-      <NewSection title={"Projects"} />
-      <ProjectSection
+      <FlipCard
+        background={"#FE7868"}
+        fontColor={"#ffffff"}
         title={"Manager Locator"}
-        summary={
-          "This app was created to help my team keep my managers exact location up to date. I did not deploy this app but the code is on my github. This was a fun backend project to learn NodeJs."
-        }
-        techStack={[tailwindLogo, nodeLogo, htmlLogo]}
-        projectDetails={
-          "This was my first project using tailwind css which I really enjoyed. Tailwind is a nice tool to quickly layout and beautify the page. I also learned NodeJs with this project. That was quite a learning curve but interesting to understand how to create API routes and server side rendering. I did not deploy this project. However the code is available here: "
-        }
+        components={[
+          <p className="about-me-summary">
+            This app was created to help my team keep my managers exact location
+            up to date. I did not deploy this app but the code is on my github.
+            This was a fun backend project to learn NodeJs.
+          </p>,
+          <TechStackIconWrapper icons={[tailwindLogo, nodeLogo, htmlLogo]} />,
+        ]}
       />
       <ProjectSection
         title={"Quizzical"}

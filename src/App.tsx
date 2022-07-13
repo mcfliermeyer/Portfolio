@@ -7,50 +7,29 @@ import NewSection from "./components/NewSection";
 import GlobalStyle from "./theme/globalStyles";
 import ProjectSection from "./components/ProjectSection";
 import Projects from "./components/Projects";
+import FlipCard from "./components/FlipCard";
+import TechStackIconWrapper from "./components/TechStackIconWrapper";
+import tailwindLogo from "./resources/tailwindcss.svg";
+import reactLogo from "./resources/react.svg";
+import typescriptLogo from "./resources/typescript.svg";
+import javaLogo from './resources/java.svg'
+import swiftLogo from './resources/swift.svg'
+import pythonLogo from './resources/python.svg'
+import javascriptLogo from './resources/javascriptLogo.svg'
+import nodeLogo from './resources/nodejs-icon.svg'
+import htmlLogo from './resources/html-1.svg'
+import cssLogo from './resources/css-3.svg'
+import styledComponentsLogo from './resources/styledComponents.svg'
 
 const StyledApp = styled.div`
   .about-me-summary {
-    margin-top: 1.5rem;
+    margin: 1rem;
     margin-inline: auto;
-    margin-bottom: 2rem;
-    padding-inline: 1.5rem;
+    /* padding-inline: 1.5rem; */
   }
   .highlighted-text {
     color: #bf46b7;
     font-weight: 700;
-  }
-  .skills-container {
-    /* background-color: ${(props) => props.theme.colors.primaryBlue}; */
-    /* margin-top: -1rem; */
-    padding: 0;
-    background-color: #ffc753;
-  }
-  .skills-subtitle {
-    /* color: #ffc753; */
-    color: white;
-    font-weight: 700;
-    font-size: 1.2rem;
-  }
-  ul {
-    list-style-type: none;
-    margin: 1rem;
-    padding: 0;
-    line-height: 30px;
-    letter-spacing: 0.3px;
-    font-weight: 600;
-    vertical-align: middle;
-    /* display: table-cell; */
-    li {
-      margin-bottom: 0.4rem;
-      display: block;
-      .list-item {
-        /* background-color: #bf46b7; */
-        background-color: ${(props) => props.theme.colors.primaryBlue};
-        color: white;
-        padding: 0.3rem 2rem;
-        border-radius: 2rem;
-      }
-    }
   }
 `;
 
@@ -82,50 +61,25 @@ function App() {
           for me.
         </p>
         <NewSection title={"Skills"} />
-        <div className="skills-container">
-          <span className="skills-subtitle">Languages I Speak</span>
-          <ul>
-            <li>
-              <span className="list-item">javascript</span>
-            </li>
-            <li>
-              <span className="list-item">typescript</span>
-            </li>
-            <li>
-              <span className="list-item">css</span>
-            </li>
-            <li>
-              <span className="list-item">html</span>
-            </li>
-            <li>
-              <span className="list-item">swift(iOS)</span>
-            </li>
-            <li>
-              <span className="list-item">java</span>
-            </li>
-          </ul>
-          <span className="skills-subtitle">Tools I Use</span>
-          <ul>
-            <li>
-              <span className="list-item">visual studio code</span>
-            </li>
-            <li>
-              <span className="list-item">codepen</span>
-            </li>
-          </ul>
-          <span className="skills-subtitle">Librarys/Frameworks I Know</span>
-          <ul>
-            <li>
-              <span className="list-item">react</span>
-            </li>
-            <li>
-              <span className="list-item">tailwind css</span>
-            </li>
-          </ul>
-        </div>
+        {/* <FlipCard
+          fontColor={"#ffffff"}
+          title={"Languages/Frameworks"}
+          components={[<SkillIcons key={1} />]}
+        />
+        <FlipCard
+          fontColor={"#ffffff"}
+          title={"Languages/Frameworks"}
+          components={[<SkillIcons key={2} />]}
+        /> */}
       </StyledApp>
     </Theme>
   );
 }
 
 export default App;
+
+function SkillIcons() {
+  return (
+    <TechStackIconWrapper className="tech-stack-icons" icons={[javascriptLogo, typescriptLogo, reactLogo, nodeLogo, htmlLogo, cssLogo, styledComponentsLogo, tailwindLogo, swiftLogo, javaLogo]} />
+  )
+}
