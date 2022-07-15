@@ -48,6 +48,7 @@ function App() {
           to take my passion for problem solving and move it into a career. So
           here I am, searching for more puzzles to solve.
         </p>
+        <NewSection title={"Projects"} />
         <Projects />
         <NewSection title="I love" subtitle="inuitive user experience" />
         <p className="about-me-summary">
@@ -61,16 +62,24 @@ function App() {
           for me.
         </p>
         <NewSection title={"Skills"} />
-        {/* <FlipCard
-          fontColor={"#ffffff"}
-          title={"Languages/Frameworks"}
-          components={[<SkillIcons key={1} />]}
-        />
         <FlipCard
           fontColor={"#ffffff"}
           title={"Languages/Frameworks"}
-          components={[<SkillIcons key={2} />]}
-        /> */}
+          frontComponents={[<SkillIcons key={1} />]}
+          backComponents={[]}
+        />
+        <FlipCard
+          fontColor={"#ffffff"}
+          title={"Tools"}
+          frontComponents={[<SkillIcons key={2} />]}
+          backComponents={[]}
+        />
+        <FlipCard
+          fontColor={"#ffffff"}
+          title={"Soft Skills"}
+          frontComponents={[<SkillIcons key={2} />]}
+          backComponents={[]}
+        />
       </StyledApp>
     </Theme>
   );

@@ -1,9 +1,5 @@
 import {
-  useEffect,
-  useLayoutEffect,
-  useRef,
   useState,
-  useCallback,
 } from "react";
 import styled from "styled-components";
 import FlipArrow from "./FlipArrow";
@@ -65,8 +61,9 @@ const StyledFlipCard = styled.div`
       /* padding: 1rem 1.5rem; */
       .back-arrow-container {
         position: absolute;
-        top: -10px;
-        left: 0px;
+        top: -25px;
+        left: -8px;
+        padding: 10px;
         cursor: pointer;
       }
     }
@@ -77,12 +74,12 @@ type RGB = `rgb(${number}, ${number}, ${number})`;
 type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
 type HEX = `#${string}`;
 type Color = RGB | RGBA | HEX;
-type Props = { background?: Color, fontColor: Color; title: String; components: JSX.Element[] };
+type Props = { background?: Color, fontColor: Color; title: String; frontComponents: JSX.Element[]; backComponents: JSX.Element[] };
 
 const FlipCard = (props: Props) => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [frontRef, [frontCardWidth, frontCardHeight]] = useElementSize();
-  const [backRef, [backCardWidth, backCardHeight]] = useElementSize();
+  const [frontRef, [, frontCardHeight]] = useElementSize();
+  const [backRef, [, backCardHeight]] = useElementSize();
 
   const handleDetailClick = () => {
     setIsFlipped(!isFlipped)
@@ -104,7 +101,7 @@ const FlipCard = (props: Props) => {
           style={{ backgroundColor: `${props.background}` }}
         >
           <h1 className="title">{props.title}</h1>
-          {props.components}
+          {props.frontComponents}
           <button
             className="more-detail-btn"
             onClick={() => handleDetailClick()}
@@ -121,20 +118,7 @@ const FlipCard = (props: Props) => {
             className="back-arrow-container"
             onClick={handleDetailClick}
           />
-          <p className="about-me-summary">
-            Hello, my name is Mark Meyer. I am a web developer. I have a passion
-            for troubleshooting and problem solving. Web app development is
-            filled with tiny puzzles for me to figure out every day. I recently
-            decided to take my passion for problem solving and move it into a
-            career. So here I am, searching for more puzzles to solve.
-          </p>
-          <p className="about-me-summary">
-            Hello, my name is Mark Meyer. I am a web developer. I have a passion
-            for troubleshooting and problem solving. Web app development is
-            filled with tiny puzzles for me to figure out every day. I recently
-            decided to take my passion for problem solving and move it into a
-            career. So here I am, searching for more puzzles to solve.
-          </p>
+          {props.backComponents}
         </div>
       </div>
     </StyledFlipCard>
