@@ -20,6 +20,7 @@ import nodeLogo from './resources/nodejs-icon.svg'
 import htmlLogo from './resources/html-1.svg'
 import cssLogo from './resources/css-3.svg'
 import styledComponentsLogo from './resources/styledComponents.svg'
+import appDownloads from './resources/appDownloads.jpg'
 
 const StyledApp = styled.div`
   .about-me-summary {
@@ -30,6 +31,9 @@ const StyledApp = styled.div`
   .highlighted-text {
     color: #bf46b7;
     font-weight: 700;
+  }
+  .app-download-img {
+    width: 100%;
   }
 `;
 
@@ -72,7 +76,16 @@ function App() {
             </p>,
             <WebSkillIcons key={1} />
           ]}
-          backComponents={[]}
+          backComponents={[
+            <p>I dove in head first with web developement in December of 2021. I was 
+              lucky enough to have found a welcoming and eager to learn community at 
+              scrimba.com There I learned the basics of HTML CSS and Javascript. After 
+              that, I was stumbling through the woods and picking up all different web 
+              technologies along the way. The more I learned, the more I realized how 
+              vast the amount of web tech there was. I will be forever learning as a 
+              web developer and I couldn't be more excited.
+            </p>
+          ]}
         />
         <FlipCard
           fontColor={"#ffffff"}
@@ -88,6 +101,10 @@ function App() {
               store for 2 years and recieved a few messages about how it helped people. That was 
               a great feeling. It is still being used today, although I am no longer paying to 
               keep it on the app store. 
+            </p>,
+            <img src={appDownloads} alt="apple analytics" className="app-download-img" />,
+            <p>This app is something I am really proud of, and I look forward to doing more 
+              native app development.
             </p>
           ]}
         />
