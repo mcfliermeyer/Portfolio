@@ -16,8 +16,7 @@ const StyledFlipCard = styled.div`
     font-weight: 600;
     font-family: ${(props) => props.theme.fonts.nameTitleFont};
   }
-  .more-detail-btn,
-  a {
+  .more-detail-btn{
     box-sizing: border-box;
     line-height: 1rem;
     display: inline-block;

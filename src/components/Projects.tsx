@@ -1,5 +1,12 @@
+import styled from "styled-components";
+
+//components
 import NewSection from "./NewSection";
-import ProjectSection from "./ProjectSection";
+import FlipCard from "./FlipCard";
+import TechStackIconWrapper from "./TechStackIconWrapper";
+import GithubIconWithLink from "./GithubIconWithLink";
+
+//logos and svgs
 import cssLogo from "../resources/css-3.svg";
 import htmlLogo from "../resources/html-1.svg";
 import nodeLogo from "../resources/nodejs-icon.svg";
@@ -9,9 +16,7 @@ import typescriptLogo from "../resources/typescript.svg";
 import styledComponentsLogo from "../resources/styledComponents.svg";
 import githubLogo from "../resources/githubLogo.svg";
 import liveDemoLogo from "../resources/liveDemo.svg";
-import styled from "styled-components";
-import FlipCard from "./FlipCard";
-import TechStackIconWrapper from "./TechStackIconWrapper";
+import LiveSiteWithLink from "./LiveSiteWithLink";
 
 const StyledProjects = styled.div`
   .title {
@@ -41,7 +46,7 @@ const Projects = () => {
         fontColor={"#ffffff"}
         title={"Manager Locator"}
         frontComponents={[
-          <p className="about-me-summary">
+          <p className="">
             This app was created to help my team keep my managers exact location
             up to date. I did not deploy this app but the code is on my github.
             This was a fun backend project to learn NodeJs.
@@ -49,7 +54,7 @@ const Projects = () => {
           <TechStackIconWrapper icons={[tailwindLogo, nodeLogo, htmlLogo]} />,
         ]}
         backComponents={[
-          <TechStackIconWrapper icons={[githubLogo, liveDemoLogo]} />,
+          <GithubIconWithLink link="https://github.com/mcfliermeyer/FieldTechBossAlert" />,
           <h1 className="title">NodeJs</h1>,
           <p>
             Every project teaches me something new. This project specifically
@@ -76,7 +81,7 @@ const Projects = () => {
         fontColor={"#ffffff"}
         title={"Quizzical"}
         frontComponents={[
-          <p className="about-me-summary">
+          <p className="">
             The Quizzical app is from Scrimba.com. It hooks into a RESTful API
             which contains questions and answers. At the end, the quiz shows all
             right and wrong answers.
@@ -86,7 +91,8 @@ const Projects = () => {
           />,
         ]}
         backComponents={[
-          <TechStackIconWrapper icons={[githubLogo, liveDemoLogo]} />,
+          <GithubIconWithLink link="https://github.com/mcfliermeyer/Quizzical" />,
+          <LiveSiteWithLink link="https://flier-quizzical-app.netlify.app/" />,
           <h1 className="title">General Learning</h1>,
           <p>
             This project was my first large scale project with no real guidance
@@ -116,24 +122,26 @@ const Projects = () => {
         fontColor={"#ffffff"}
         title={"This Portfolio"}
         frontComponents={[
-          <p className="about-me-summary">
-            Of course this portfolio. I decided to try out TypeScript for this portfolio along with 
-            an old favorite of styled-components. 
+          <p className="">
+            Of course this portfolio. I decided to try out TypeScript for this
+            portfolio along with an old favorite of styled-components.
           </p>,
           <TechStackIconWrapper
             icons={[typescriptLogo, styledComponentsLogo, htmlLogo]}
           />,
         ]}
         backComponents={[
-          <TechStackIconWrapper icons={[githubLogo, liveDemoLogo]} />,
+          <GithubIconWithLink link="https://github.com/mcfliermeyer/Portfolio" />,
           <h1 className="title">TypeScript</h1>,
           <p>
             This is my first Typescript project. So far I have learned
             TypeScript is a great way to catch errors before runtime. It does
-            seem much more time inefficient to write, however I think the efficieny of catching 
-            bugs before compile time will more than make up for it with larger projects that have multiple 
-            contributers. Having come from a strongly typed programming language, 
-            Typescript has a familiar feel to it and I do enjoy using the features it provides.
+            seem much more time inefficient to write, however I think the
+            efficieny of catching bugs before compile time will more than make
+            up for it with larger projects that have multiple contributers.
+            Having come from a strongly typed programming language, Typescript
+            has a familiar feel to it and I do enjoy using the features it
+            provides.
           </p>,
         ]}
       />
