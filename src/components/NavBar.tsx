@@ -36,7 +36,7 @@ const StyledNavBar = styled.nav`
   .first-name {
     font-family: "Montserrat";
     font-weight: 600;
-    font-size: 36px;
+    font-size: 2.25rem;
     color: ${(props) => props.theme.colors.primaryPinkish};
     letter-spacing: -1px;
     margin-bottom: -20px;

@@ -20,7 +20,7 @@ import LiveSiteWithLink from "./LiveSiteWithLink";
 
 const StyledProjects = styled.div`
   .title {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
     font-family: ${(props) => props.theme.fonts.nameTitleFont};
     margin: 0 0 0.2rem;
