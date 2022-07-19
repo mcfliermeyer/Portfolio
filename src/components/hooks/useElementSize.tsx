@@ -38,7 +38,6 @@ function useElementSize<T extends HTMLElement = HTMLDivElement>(): [
   useEffect(() => {
     setTimeout(() => handleSize(), 30);
     // handleSize();
-    console.log(ref?.offsetHeight)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref?.offsetHeight, ref?.offsetWidth]);
 

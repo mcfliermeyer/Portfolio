@@ -12,23 +12,23 @@ const StyledFlipCard = styled.div`
   position: relative;
   color: #fff;
   .title {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600;
     font-family: ${(props) => props.theme.fonts.nameTitleFont};
   }
   .more-detail-btn{
     box-sizing: border-box;
-    line-height: 1rem;
+    line-height: 1em;
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
     background-color: ${(props) => props.theme.colors.primaryBlue};
     color: white;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
-    padding: 1rem 2rem;
-    margin: 0.5rem;
+    padding: 1em 2em;
+    margin: 0.5em;
     border: none;
     box-shadow: 0 3px 2px 1px rgb(128, 128, 128, 0.3);
   }
@@ -49,7 +49,7 @@ const StyledFlipCard = styled.div`
       top: 0;
       left: 0;
       right: 0;
-      padding: 1rem 1.5rem .5rem;
+      padding: 1em 1.5em .5em;
     }
     .front {
       z-index: 2;

@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 const StyledThatsMe = styled.svg`
   background-color: transparent;
+  @media (min-width: 425px) {
+    font-size: 1rem;
+  }
 `;
 
 const ThatsMe = () => {

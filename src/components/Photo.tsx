@@ -45,11 +45,16 @@ const StyledPhoto = styled.div`
     border-radius: 11px;
     padding: 1rem 1.5rem;
   }
-  picture {
+  @media (min-width: 425px) {
+    .picture-frame {
+      width: 200px;
+      border-radius: 11px;
+      padding: 1rem 1.5rem;
+    }
   }
   img {
     width: 100%;
-    height: 150px;
+    height: auto;
     object-fit: cover;
     border-radius: 11px;
   }

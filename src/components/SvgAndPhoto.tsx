@@ -11,8 +11,7 @@ const StyledSvgAndPhoto = styled.div`
     bottom: -70px;
     left: -80px;
   }
-  
-`;
+  `;
 
 const SvgAndPhoto = () => {
   return (

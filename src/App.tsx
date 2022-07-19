@@ -11,10 +11,10 @@ import TechStackIconWrapper from "./components/TechStackIconWrapper";
 import tailwindLogo from "./resources/tailwindcss.svg";
 import reactLogo from "./resources/react.svg";
 import typescriptLogo from "./resources/typescript.svg";
-import javaLogo from './resources/java.svg'
+// import javaLogo from './resources/java.svg'
 import swiftLogo from './resources/swift.svg'
 import androidLogo from './resources/androidLogo.svg'
-import pythonLogo from './resources/python.svg'
+// import pythonLogo from './resources/python.svg'
 import javascriptLogo from './resources/javascriptLogo.svg'
 import nodeLogo from './resources/nodejs-icon.svg'
 import htmlLogo from './resources/html-1.svg'
