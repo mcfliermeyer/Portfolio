@@ -14,7 +14,7 @@ type Props = {link: string}
 const GithubIconWithLink = (props: Props) => {
   return (
     <StyledGithubIconWithLink>
-      <a href={props.link}>
+      <a href={props.link} target="_blank" rel="noreferrer">
       <img src={githubIcon} alt="github logo" className="icon" />
       </a>
     </StyledGithubIconWithLink>

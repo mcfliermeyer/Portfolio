@@ -13,7 +13,7 @@ type Props = { link: string };
 const LiveSiteWithLink = (props: Props) => {
   return (
     <StyledLiveSiteWithLink>
-      <a href={props.link}>
+      <a href={props.link} target="_blank" rel="noreferrer">
         <img src={liveDemoIcon} alt="github logo" className="icon" />
       </a>
     </StyledLiveSiteWithLink>
