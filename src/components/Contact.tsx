@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import NewSection from "./NewSection";
 const FORM_ENDPOINT = "change to .env file";
 
 const StyledContact = styled.div`
@@ -27,6 +28,12 @@ const StyledContact = styled.div`
     :focus::placeholder {
       color: transparent;
     }
+    :focus {
+      outline: ${(props) => props.theme.colors.primaryBlue} 4px solid;
+    }
+  }
+  textarea {
+    resize: none;
   }
   .send-msg-btn {
     box-sizing: border-box;
@@ -55,6 +62,7 @@ const Contact = (props: Props) => {
 
   return (
     <StyledContact>
+      <NewSection title={"Contact"} subtitle={"me for more information"} />
       <form
         action={FORM_ENDPOINT}
         onSubmit={handleSubmit}

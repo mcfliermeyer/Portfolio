@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-const StyledNewSection = styled.div`
+const StyledNewSection = styled.section`
   margin-top: 1.2em;
   margin-bottom: 1.2em;
   .title {
@@ -18,21 +18,24 @@ const StyledNewSection = styled.div`
     font-size: 0.875rem;
     color: #34cace;
     margin: 0;
-    letter-spacing: -.5px;
+    letter-spacing: -0.5px;
   }
 `;
 
-
 type Props = {
-  title: String,
-  subtitle?: String,
-}
+  title: String;
+  subtitle?: String;
+};
 const NewSection = (props: Props) => {
   return (
     <StyledNewSection>
       <h1 className="title">{props.title}</h1>
-      {props.subtitle ? <h2 className="subtitle">{props.subtitle}</h2> : <div></div>}
+      {props.subtitle ? (
+        <h2 className="subtitle">{props.subtitle}</h2>
+      ) : (
+        <div></div>
+      )}
     </StyledNewSection>
-  )
-}
-export default NewSection
+  );
+};
+export default NewSection;

@@ -19,7 +19,7 @@ import liveDemoLogo from "../resources/liveDemo.svg";
 import LiveSiteWithLink from "./LiveSiteWithLink";
 
 const StyledProjects = styled.div`
-  .title {
+  .card-title {
     font-size: 1.25rem;
     font-weight: 600;
     font-family: ${(props) => props.theme.fonts.nameTitleFont};
@@ -30,17 +30,10 @@ const StyledProjects = styled.div`
   }
 `;
 
-function quizLiveDemo() {
-  return (
-    <a className="" href="www.yahoo.com">
-      live site
-    </a>
-  );
-}
-
 const Projects = () => {
   return (
     <StyledProjects>
+      <NewSection title={"Projects"} />
       <FlipCard
         background={"#FE7868"}
         fontColor={"#ffffff"}
@@ -55,7 +48,7 @@ const Projects = () => {
         ]}
         backComponents={[
           <GithubIconWithLink link="https://github.com/mcfliermeyer/FieldTechBossAlert" />,
-          <h1 className="title">NodeJs</h1>,
+          <h1 className="card-title">NodeJs</h1>,
           <p>
             Every project teaches me something new. This project specifically
             taught me some backend technologies. Specifically NodeJs and how to
@@ -64,7 +57,6 @@ const Projects = () => {
             project. Node was a lot of fun to play with and I look forward to
             using it again for future projects.
           </p>,
-          <h1 className="title">Tailwind Css</h1>,
           <p>
             Tailwind was the other technology I decided to use and learn. At
             first I was very hesitant, but I quickly saw a dramatic increase in
@@ -93,7 +85,7 @@ const Projects = () => {
         backComponents={[
           <GithubIconWithLink link="https://github.com/mcfliermeyer/Quizzical" />,
           <LiveSiteWithLink link="https://flier-quizzical-app.netlify.app/" />,
-          <h1 className="title">General Learning</h1>,
+          <h1 className="card-title">General Learning</h1>,
           <p>
             This project was my first large scale project with no real guidance
             to follow from a tutorial standpoint. I cannot understate how much
@@ -106,7 +98,7 @@ const Projects = () => {
             WELL, this project taught me a whole new world of web and app
             development exist, I just need to know how to find it.
           </p>,
-          <h1 className="title">React</h1>,
+          <h1 className="card-title">React</h1>,
           <p>
             This was my first solo React project. I learned a lot about React
             Hooks. Styled-components was a big eye opener for me. Using React to
@@ -132,7 +124,7 @@ const Projects = () => {
         ]}
         backComponents={[
           <GithubIconWithLink link="https://github.com/mcfliermeyer/Portfolio" />,
-          <h1 className="title">TypeScript</h1>,
+          <h1 className="card-title">TypeScript</h1>,
           <p>
             This is my first Typescript project. So far I have learned
             TypeScript is a great way to catch errors before runtime. It does
