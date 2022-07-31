@@ -1,6 +1,4 @@
-import {
-  useState,
-} from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import FlipArrow from "./FlipArrow";
 import useElementSize from "./hooks/useElementSize";
@@ -16,7 +14,7 @@ const StyledFlipCard = styled.div`
     font-weight: 600;
     font-family: ${(props) => props.theme.fonts.nameTitleFont};
   }
-  .more-detail-btn{
+  .more-detail-btn {
     box-sizing: border-box;
     line-height: 1em;
     display: inline-block;
@@ -26,6 +24,7 @@ const StyledFlipCard = styled.div`
     color: white;
     font-size: 1rem;
     font-weight: 600;
+    font-family: ${(props) => props.theme.fonts.nameTitleFont};
     text-decoration: none;
     padding: 1em 2em;
     margin: 0.5em;
@@ -49,7 +48,7 @@ const StyledFlipCard = styled.div`
       top: 0;
       left: 0;
       right: 0;
-      padding: 1em 1.5em .5em;
+      padding: 1em 1.5em 0.5em;
     }
     .front {
       z-index: 2;
@@ -73,7 +72,13 @@ type RGB = `rgb(${number}, ${number}, ${number})`;
 type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
 type HEX = `#${string}`;
 type Color = RGB | RGBA | HEX;
-type Props = { background?: Color, fontColor: Color; title: String; frontComponents: JSX.Element[]; backComponents: JSX.Element[] };
+type Props = {
+  background?: Color;
+  fontColor: Color;
+  title: String;
+  frontComponents: JSX.Element[];
+  backComponents: JSX.Element[];
+};
 
 const FlipCard = (props: Props) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -81,7 +86,7 @@ const FlipCard = (props: Props) => {
   const [backRef, [, backCardHeight]] = useElementSize();
 
   const handleDetailClick = () => {
-    setIsFlipped(!isFlipped)
+    setIsFlipped(!isFlipped);
   };
 
   return (
@@ -126,4 +131,3 @@ const FlipCard = (props: Props) => {
 
 FlipCard.Styled = StyledFlipCard;
 export default FlipCard;
-
