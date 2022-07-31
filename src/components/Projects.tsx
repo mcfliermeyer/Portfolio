@@ -5,18 +5,15 @@ import NewSection from "./NewSection";
 import FlipCard from "./FlipCard";
 import TechStackIconWrapper from "./TechStackIconWrapper";
 import GithubIconWithLink from "./GithubIconWithLink";
+import LiveSiteWithLink from "./LiveSiteWithLink";
 
 //logos and svgs
-import cssLogo from "../resources/css-3.svg";
 import htmlLogo from "../resources/html-1.svg";
 import nodeLogo from "../resources/nodejs-icon.svg";
 import tailwindLogo from "../resources/tailwindcss.svg";
 import reactLogo from "../resources/react.svg";
 import typescriptLogo from "../resources/typescript.svg";
 import styledComponentsLogo from "../resources/styledComponents.svg";
-import githubLogo from "../resources/githubLogo.svg";
-import liveDemoLogo from "../resources/liveDemo.svg";
-import LiveSiteWithLink from "./LiveSiteWithLink";
 
 const StyledProjects = styled.div`
   .card-title {
