@@ -25,6 +25,9 @@ const GlobalStyle = createGlobalStyle`
   }
   p {
     line-height: 21px;
+    max-width: 700px;
+    margin-inline: auto;
+
   }
   @media (min-width: 425px) {
     p {

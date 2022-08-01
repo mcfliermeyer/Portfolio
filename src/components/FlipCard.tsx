@@ -9,6 +9,7 @@ const StyledFlipCard = styled.div`
   display: block;
   position: relative;
   color: #fff;
+  min-width: 30%;
   .title {
     font-size: 1.5rem;
     font-weight: 600;
