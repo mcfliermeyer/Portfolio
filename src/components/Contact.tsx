@@ -7,6 +7,8 @@ const StyledContact = styled.div`
     display: flex;
     flex-direction: column;
     padding: 0em 1.5em 1.5em;
+    max-width: 700px;
+    margin-inline: auto;
   }
   input,
   textarea {
@@ -48,7 +50,8 @@ const StyledContact = styled.div`
     font-family: ${(props) => props.theme.fonts.nameTitleFont};
     text-decoration: none;
     padding: 1em 2em;
-    margin: 1.5em 0 0;
+    margin-top: 1.5em;
+    margin-inline: auto;
     border: none;
     box-shadow: 0 3px 2px 1px rgb(128, 128, 128, 0.3);
   }

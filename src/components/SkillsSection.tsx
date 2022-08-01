@@ -17,7 +17,13 @@ import styledComponentsLogo from "../resources/styledComponents.svg";
 import appDownloads from "../resources/appDownloads.jpg";
 
 const StyledSkillsSection = styled.section`
-  
+  .img-container {
+    width: 80%;
+    margin-inline: auto;
+    img {
+      width: 100%;
+    }
+  }
 `
 
 type Props = {}
@@ -68,11 +74,13 @@ const SkillsSection = (props: Props) => {
             helped people. That was a great feeling. It is still being used
             today, although I am no longer paying to keep it on the app store.
           </p>,
-          <img
-            src={appDownloads}
-            alt="apple analytics"
-            className="app-download-img"
-          />,
+          <div className="img-container">
+            <img
+              src={appDownloads}
+              alt="apple analytics"
+              className="app-download-img"
+            />
+          </div>,
           <p>
             This app is something I am really proud of, and I look forward to
             doing more native app development.

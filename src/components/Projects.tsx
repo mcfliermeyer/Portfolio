@@ -23,16 +23,8 @@ const StyledProjects = styled.div`
     margin: 0 0 0.2rem;
   }
   @media (min-width: 425px) {
-    .large-screen-flex {
-      /* min-width: 90%; */
-      /* border: red 4px solid; */
-      display: flex;
-    }
-    ${FlipCard.Styled} {
-      flex-grow: 1;
-      flex-shrink: 0;
-      flex-basis: content;
-    }
+    width: 80%;
+    margin-inline: auto;
   }
 `;
 
