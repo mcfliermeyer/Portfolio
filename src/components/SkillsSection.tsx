@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 import FlipCard from "./FlipCard";
 import NewSection from "./NewSection";
 import TechStackIconWrapper from "./TechStackIconWrapper";
@@ -24,15 +24,23 @@ const StyledSkillsSection = styled.section`
       width: 100%;
     }
   }
-`
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: ${(props) => props.theme.fonts.nameTitleFont};
+    margin: 0 0 0.2rem;
+  }
+`;
 
-type Props = {}
-const SkillsSection = (props: Props) => {
+const SkillsSection = () => {
   return (
     <StyledSkillsSection>
       <NewSection title={"Skills"} />
       <FlipCard
-        fontColor={"#ffffff"}
+        overload={{
+          bg: "#ffc753",
+          isTop: true,
+        }}
         title={"Web"}
         frontComponents={[
           <p>
@@ -57,7 +65,10 @@ const SkillsSection = (props: Props) => {
         ]}
       />
       <FlipCard
-        fontColor={"#ffffff"}
+        overload={{
+          bg: "#ffc753",
+          isBottom: true,
+        }}
         title={"Mobile"}
         frontComponents={[
           <p>
@@ -89,8 +100,8 @@ const SkillsSection = (props: Props) => {
       />
     </StyledSkillsSection>
   );
-}
-export default SkillsSection
+};
+export default SkillsSection;
 
 function WebSkillIcons() {
   return (

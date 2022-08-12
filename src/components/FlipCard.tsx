@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { FunctionComponent, useState } from "react";
 import styled from "styled-components";
 import FlipArrow from "./FlipArrow";
 import useElementSize from "./hooks/useElementSize";
 
-const StyledFlipCard = styled.div`
+const StyledFlipCard = styled.div<FlipCardProps>`
   border-bottom: 1px white solid;
   margin-inline: auto;
   display: block;
   position: relative;
   color: #fff;
-  /* min-width: 30%; */
+  border-top-left-radius: ${(props) => (props.overload?.isTop ? "1em" : 0)};
+  border-top-right-radius: ${(props) => (props.overload?.isTop ? "1em" : 0)};
+  border-bottom-left-radius: ${(props) =>
+    props.overload?.isBottom ? "1em" : 0};
+  border-bottom-right-radius: ${(props) =>
+    props.overload?.isBottom ? "1em" : 0};
+
+  @media (min-width: 425px) {
+    max-width: 900px;
+    margin-inline: auto;
+  }
   .title {
     font-size: 1.5rem;
     font-weight: 600;
@@ -43,13 +53,20 @@ const StyledFlipCard = styled.div`
     transform-style: preserve-3d;
     .front,
     .back {
-      background-color: ${(props) => props.theme.colors.primaryYellow};
       backface-visibility: hidden;
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       padding: 1em 1.5em 0.5em;
+      background-color: ${(props) => props.overload?.bg};
+      border-top-left-radius: ${(props) => (props.overload?.isTop ? "1em" : 0)};
+      border-top-right-radius: ${(props) =>
+        props.overload?.isTop ? "1em" : 0};
+      border-bottom-left-radius: ${(props) =>
+        props.overload?.isBottom ? "1em" : 0};
+      border-bottom-right-radius: ${(props) =>
+        props.overload?.isBottom ? "1em" : 0};
     }
     .front {
       z-index: 2;
@@ -72,16 +89,22 @@ const StyledFlipCard = styled.div`
 type RGB = `rgb(${number}, ${number}, ${number})`;
 type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
 type HEX = `#${string}`;
-type Color = RGB | RGBA | HEX;
-type Props = {
-  background?: Color;
-  fontColor: Color;
+type Color = RGB | RGBA | HEX | string;
+interface FlipCardProps {
+  overload?: {
+    isTop?: Boolean;
+    isBottom?: Boolean;
+    bg: Color;
+    fontColor?: Color;
+  };
+}
+interface Props extends FlipCardProps {
   title: String;
   frontComponents: JSX.Element[];
   backComponents: JSX.Element[];
-};
+}
 
-const FlipCard = (props: Props) => {
+const FlipCard: FunctionComponent<Props> = (props: Props) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [frontRef, [, frontCardHeight]] = useElementSize();
   const [backRef, [, backCardHeight]] = useElementSize();
@@ -91,7 +114,13 @@ const FlipCard = (props: Props) => {
   };
 
   return (
-    <StyledFlipCard>
+    <StyledFlipCard
+      overload={{
+        bg: props.overload?.bg || "#a168fe",
+        isTop: props.overload?.isTop,
+        isBottom: props.overload?.isBottom,
+      }}
+    >
       <div
         className={isFlipped ? "flipper" : "unflipper"}
         style={
@@ -103,7 +132,7 @@ const FlipCard = (props: Props) => {
         <div
           className="front"
           ref={frontRef}
-          style={{ backgroundColor: `${props.background}` }}
+          // style={{ backgroundColor: `${props.background}` }}
         >
           <h1 className="title">{props.title}</h1>
           {props.frontComponents}
@@ -117,7 +146,7 @@ const FlipCard = (props: Props) => {
         <div
           className="back"
           ref={backRef}
-          style={{ backgroundColor: `${props.background}` }}
+          // style={{ backgroundColor: `${props.background}` }}
         >
           <FlipArrow
             className="back-arrow-container"
@@ -130,5 +159,10 @@ const FlipCard = (props: Props) => {
   );
 };
 
-FlipCard.Styled = StyledFlipCard;
+// FlipCard.Styled = StyledFlipCard;
 export default FlipCard;
+
+//to do figure out the difference between props in the styled componenet interface props and the normal props interface. no clue. just
+//erased "background" from the interface of normal props and its yelling at me
+
+//second update go to this site to fix component https://blog.devgenius.io/using-styled-components-and-props-with-typescript-react-a3c32a496f47

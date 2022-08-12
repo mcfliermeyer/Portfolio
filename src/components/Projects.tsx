@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 
 //components
 import NewSection from "./NewSection";
@@ -14,6 +14,7 @@ import tailwindLogo from "../resources/tailwindcss.svg";
 import reactLogo from "../resources/react.svg";
 import typescriptLogo from "../resources/typescript.svg";
 import styledComponentsLogo from "../resources/styledComponents.svg";
+// import Theme from "../theme/Theme";
 
 const StyledProjects = styled.div`
   .card-title {
@@ -22,20 +23,19 @@ const StyledProjects = styled.div`
     font-family: ${(props) => props.theme.fonts.nameTitleFont};
     margin: 0 0 0.2rem;
   }
-  @media (min-width: 425px) {
-    width: 80%;
-    margin-inline: auto;
-  }
 `;
 
 const Projects = () => {
+  const theme = useTheme()
   return (
     <StyledProjects>
       <NewSection title={"Projects"} />
       <div className="large-screen-flex">
         <FlipCard
-          background={"#FE7868"}
-          fontColor={"#ffffff"}
+          overload={{
+            bg: "#FE7868",
+            isTop: true,
+          }}
           title={"Manager Locator"}
           frontComponents={[
             <p className="">
@@ -68,8 +68,9 @@ const Projects = () => {
           ]}
         />
         <FlipCard
-          background={"#FE7868"}
-          fontColor={"#ffffff"}
+          overload={{
+            bg: "#FE7868",
+          }}
           title={"Quizzical"}
           frontComponents={[
             <p className="">
@@ -109,8 +110,10 @@ const Projects = () => {
           ]}
         />
         <FlipCard
-          background={"#FE7868"}
-          fontColor={"#ffffff"}
+          overload={{
+            bg: "#FE7868",
+            isBottom: true,
+          }}
           title={"This Portfolio"}
           frontComponents={[
             <p className="">
