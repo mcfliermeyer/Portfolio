@@ -17,7 +17,7 @@ const StyledFlipCard = styled.div<FlipCardProps>`
     props.overload?.isBottom ? "1em" : 0};
 
   @media (min-width: 425px) {
-    max-width: 900px;
+    max-width: 800px;
     margin-inline: auto;
   }
   .title {

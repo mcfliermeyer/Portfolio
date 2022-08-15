@@ -35,7 +35,7 @@ const StyledSkillsSection = styled.section`
 const SkillsSection = () => {
   return (
     <StyledSkillsSection>
-      <NewSection title={"Skills"} />
+      <NewSection title={"Skills"} subtitle="what I can do" />
       <FlipCard
         overload={{
           bg: "#ffc753",
