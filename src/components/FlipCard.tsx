@@ -104,7 +104,7 @@ interface Props extends FlipCardProps {
   backComponents: JSX.Element[];
 }
 
-const FlipCard: FunctionComponent<Props> = (props: Props) => {
+const FlipCard = (props: Props) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [frontRef, [, frontCardHeight]] = useElementSize();
   const [backRef, [, backCardHeight]] = useElementSize();
@@ -159,7 +159,7 @@ const FlipCard: FunctionComponent<Props> = (props: Props) => {
   );
 };
 
-// FlipCard.Styled = StyledFlipCard;
+FlipCard.Styled = StyledFlipCard;
 export default FlipCard;
 
 //to do figure out the difference between props in the styled componenet interface props and the normal props interface. no clue. just

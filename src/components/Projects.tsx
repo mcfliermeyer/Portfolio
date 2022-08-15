@@ -23,10 +23,20 @@ const StyledProjects = styled.div`
     font-family: ${(props) => props.theme.fonts.nameTitleFont};
     margin: 0 0 0.2rem;
   }
+  @media (min-width: 1140px) {
+    ${FlipCard.Styled} {
+      min-width: 300px;
+    }
+    .large-screen-flex {
+      display: flex;
+      flex-direction: row;
+    }
+    //probably change this to grid auto-fit or auto-fill because flex auto shrinks everthing
+  }
 `;
 
 const Projects = () => {
-  const theme = useTheme()
+  const theme = useTheme();
   return (
     <StyledProjects>
       <NewSection title={"Projects"} />
