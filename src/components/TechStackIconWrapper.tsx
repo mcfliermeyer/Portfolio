@@ -23,4 +23,5 @@ const TechStackIconWrapper = (props: Props) => {
     </StyledTechStackIconWrapper>
   );
 };
+TechStackIconWrapper.Styled = StyledTechStackIconWrapper
 export default TechStackIconWrapper;

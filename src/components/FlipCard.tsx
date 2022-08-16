@@ -2,6 +2,7 @@ import { FunctionComponent, useState } from "react";
 import styled from "styled-components";
 import FlipArrow from "./FlipArrow";
 import useElementSize from "./hooks/useElementSize";
+import TechStackIconWrapper from "./TechStackIconWrapper";
 
 const StyledFlipCard = styled.div<FlipCardProps>`
   border-bottom: 1px white solid;
@@ -9,12 +10,6 @@ const StyledFlipCard = styled.div<FlipCardProps>`
   display: block;
   position: relative;
   color: #fff;
-  border-top-left-radius: ${(props) => (props.overload?.isTop ? "1em" : 0)};
-  border-top-right-radius: ${(props) => (props.overload?.isTop ? "1em" : 0)};
-  border-bottom-left-radius: ${(props) =>
-    props.overload?.isBottom ? "1em" : 0};
-  border-bottom-right-radius: ${(props) =>
-    props.overload?.isBottom ? "1em" : 0};
 
   @media (min-width: 425px) {
     max-width: 900px;
@@ -42,6 +37,22 @@ const StyledFlipCard = styled.div<FlipCardProps>`
     border: none;
     box-shadow: 0 3px 2px 1px rgb(128, 128, 128, 0.3);
   }
+
+  @media (min-width: 1200px) {
+    .more-detail-btn {
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      right: 20px;
+    }
+    ${TechStackIconWrapper.Styled} {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 90px;
+    }
+  }
+
   /* css card flip logic  */
   perspective: 2000px;
   .flipper {
@@ -132,7 +143,6 @@ const FlipCard = (props: Props) => {
         <div
           className="front"
           ref={frontRef}
-          // style={{ backgroundColor: `${props.background}` }}
         >
           <h1 className="title">{props.title}</h1>
           {props.frontComponents}
@@ -146,7 +156,6 @@ const FlipCard = (props: Props) => {
         <div
           className="back"
           ref={backRef}
-          // style={{ backgroundColor: `${props.background}` }}
         >
           <FlipArrow
             className="back-arrow-container"

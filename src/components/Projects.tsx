@@ -23,13 +23,18 @@ const StyledProjects = styled.div`
     font-family: ${(props) => props.theme.fonts.nameTitleFont};
     margin: 0 0 0.2rem;
   }
-  @media (min-width: 1140px) {
-    ${FlipCard.Styled} {
-      min-width: 300px;
-    }
+  @media (min-width: 1200px) {
     .large-screen-flex {
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-gap: 20px;
+      ${FlipCard.Styled} {
+        min-width: 400px;
+        .front, .back {
+          border-radius: 1em;
+          min-height: 420px;
+        }
+      }
     }
     //probably change this to grid auto-fit or auto-fill because flex auto shrinks everthing
   }
