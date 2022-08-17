@@ -23,10 +23,24 @@ const StyledProjects = styled.div`
     font-family: ${(props) => props.theme.fonts.nameTitleFont};
     margin: 0 0 0.2rem;
   }
+  @media (min-width: 1200px) {
+    .large-screen-flex {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-gap: 20px;
+      ${FlipCard.Styled} {
+        min-width: 90%;
+        .front, .back {
+          border-radius: 1em;
+          min-height: 420px;
+        }
+      }
+    }
+  }
 `;
 
 const Projects = () => {
-  const theme = useTheme()
+  const theme = useTheme();
   return (
     <StyledProjects>
       <NewSection title={"Projects"} />

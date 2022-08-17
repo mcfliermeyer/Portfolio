@@ -12,6 +12,10 @@ const StyledILoveSection = styled.section`
       max-width: 700px;
     }
   }
+  .highlighted-text {
+    color: #a168fe;
+    font-weight: 700;
+  }
 `;
 
 type Props = {}
@@ -21,12 +25,12 @@ const ILoveSection = (props: Props) => {
       <NewSection title="I love" subtitle="inuitive user experience" />
       <p className="what-i-love-summary">
         Intuitive and pleasant <span className="highlighted-text">U</span>ser e
-        <span className="highlighted-text">X</span>perience is what I do best.
+        <span className="highlighted-text">X</span>perience is what I focus on.
         An over-complicated or technical looking website/app can make a users
         experience incredibly frustrating.{" "}
         <span className="highlighted-text">U</span>ser e
         <span className="highlighted-text">X</span>perience or{" "}
-        <span className="highlighted-text">UX</span> is a major focus point for
+        <span className="highlighted-text">UX</span> is important to
         me.
       </p>
     </StyledILoveSection>

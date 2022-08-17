@@ -21,8 +21,8 @@ function App() {
         <SvgAndPhoto />
         <AboutMeSection />
         <Projects />
-        <ILoveSection />
         <SkillsSection />
+        <ILoveSection />
         <Contact />
       </StyledApp>
     </Theme>
