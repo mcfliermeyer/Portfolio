@@ -18,8 +18,10 @@ const StyledNavBar = styled.nav`
 
   min-height: 75px;
   min-width: max-content;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1;
   border-bottom: 1px black solid;
   svg {

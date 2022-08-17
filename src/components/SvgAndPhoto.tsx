@@ -3,6 +3,7 @@ import Photo from "./Photo";
 import ThatsMe from "./ThatsMe";
 
 const StyledSvgAndPhoto = styled.div`
+  margin-top: 10rem;
   position: relative;
   width: min-content;
   margin-inline: auto;

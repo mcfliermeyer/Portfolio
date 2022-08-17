@@ -5,7 +5,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     margin: 0;
     padding: 0;
-    max-width: 100%;
+    width: 100%;
+    overflow-x: hidden;
   }
   @media (min-width: 425px) {
     html {
