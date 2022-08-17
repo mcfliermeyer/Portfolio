@@ -41,7 +41,7 @@ const StyledFlipCard = styled.div<FlipCardProps>`
   @media (min-width: 1200px) {
     .more-detail-btn {
       position: absolute;
-      bottom: 10px;
+      bottom: 15px;
       left: 20px;
       right: 20px;
     }

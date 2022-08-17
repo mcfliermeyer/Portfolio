@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 const StyledNewSection = styled.section`
-  margin-top: 1.2em;
+  margin-top: 4.2em;
+  @media (min-width: 1200px) {
+    margin-top: 6em;
+    margin-bottom: 2em;
+  } 
   margin-bottom: 1.2em;
   .title {
     font-family: "Montserrat";
