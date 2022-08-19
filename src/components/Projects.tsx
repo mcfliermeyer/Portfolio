@@ -14,6 +14,7 @@ import tailwindLogo from "../resources/tailwindcss.svg";
 import reactLogo from "../resources/react.svg";
 import typescriptLogo from "../resources/typescript.svg";
 import styledComponentsLogo from "../resources/styledComponents.svg";
+import { FunctionComponent, useEffect } from "react";
 // import Theme from "../theme/Theme";
 
 const StyledProjects = styled.div`
@@ -39,8 +40,12 @@ const StyledProjects = styled.div`
   }
 `;
 
-const Projects = () => {
-  const theme = useTheme();
+interface ProjectProps {
+  ref?: React.RefObject<HTMLInputElement>
+}
+
+const Projects: FunctionComponent<ProjectProps> = ({}) => {
+  
   return (
     <StyledProjects>
       <NewSection title={"Projects"} />

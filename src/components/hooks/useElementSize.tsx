@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 // See: https://usehooks-ts.com/react-hook/use-event-listener
 import useEventListener from "./useEventListener";
