@@ -6,6 +6,7 @@ import HamburgerMenu from "./HamburgerMenu";
 interface NavProps {
   className?: String;
   logo?: String;
+  navToSkills: () => void;
 }
 
 const StyledNavBar = styled.nav`
@@ -62,7 +63,7 @@ const StyledNavBar = styled.nav`
   }
 `;
 
-export const NavBar: FunctionComponent<NavProps> = () => {
+export const NavBar = (props: NavProps) => {
   return (
     <StyledNavBar>
       <LogoIconSVG height={130} width={130} viewBox="-5 -5 320 320" />
@@ -70,7 +71,7 @@ export const NavBar: FunctionComponent<NavProps> = () => {
         <h1 className="first-name">MARK</h1>
         <h1 className="last-name">Meyer</h1>
       </div>
-      <HamburgerMenu />
+      <HamburgerMenu navToSkills={props.navToSkills}/>
     </StyledNavBar>
   );
 };

@@ -8,13 +8,9 @@ import Contact from "./components/Contact";
 import AboutMeSection from "./components/AboutMeSection";
 import ILoveSection from "./components/ILoveSection";
 import SkillsSection from "./components/SkillsSection";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 const StyledApp = styled.div`
-  .btn {
-    width: 200px;
-    height: 100px;
-  }
 `;
 
 
@@ -23,13 +19,13 @@ function App() {
   const skillsRef = useRef<HTMLInputElement>(null);
   const aboutMeRef = useRef<HTMLInputElement>(null);
   const contactRef = useRef<HTMLInputElement>(null);
+  const overlayOffset = 62;
 
-  const handleClick = () => {
-    const elHeight = projectRef.current?.getBoundingClientRect().top
+  const scrollToElement = (element: React.RefObject<HTMLDivElement>) => {
+    const elHeight = element.current?.getBoundingClientRect().top || 0;
     const bodyHeight = document.body.getBoundingClientRect().top;
-    const elPosition = Number(elHeight) - bodyHeight;
-    const offset = elPosition - 62;
-    console.log(offset);
+    const elPosition = elHeight - bodyHeight;
+    const offset = elPosition - overlayOffset;
     window.scrollTo({
       top: offset,
       behavior: "smooth",
@@ -39,7 +35,7 @@ function App() {
     <Theme>
       <StyledApp>
         <GlobalStyle />
-        <NavBar />
+        <NavBar navToSkills={() => scrollToElement(skillsRef)}/>
         <SvgAndPhoto />
         <div ref={aboutMeRef}></div>
         <AboutMeSection />
@@ -50,9 +46,6 @@ function App() {
         <ILoveSection />
         <div ref={contactRef}></div>
         <Contact />
-        <button className="btn" onClick={handleClick}>
-          Project
-        </button>
       </StyledApp>
     </Theme>
   );
