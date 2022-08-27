@@ -112,7 +112,7 @@ const StyledNavBar = styled.div`
   .change-bg {
     width: 22.5rem;
     height: 29.5rem;
-    border: 1px black solid;
+    box-shadow: 6px 2px 4px -1px rgba(0, 0, 0, 0.55);
     z-index: 1;
   }
   .move-nav {
