@@ -53,15 +53,16 @@ const StyledHamburgerMenuButton = styled.button`
 `;
 
 interface HamburgerMenuProps {
-  navToSkills: () => void;
+  toggleMenu: () => void;
+  menuIsClosed: boolean;
 }
 
 const HamburgerMenu = (props: HamburgerMenuProps) => {
-  const [menuIsClosed, setMenuIsOpen] = useState(true);
   const hamburgerRef = useRef<HTMLSpanElement>(null);
   const root = document.documentElement;
   //before psuedo element
-  const [beforeLineTransform, setBeforeLineTransform] = useState("rotate(0deg)");
+  const [beforeLineTransform, setBeforeLineTransform] =
+    useState("rotate(0deg)");
   root.style.setProperty("--before-line-transform", beforeLineTransform);
   const [beforeLineTop, setBeforeLineTop] = useState("-13px");
   root.style.setProperty("--before-line-top", beforeLineTop);
@@ -71,19 +72,16 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
   const [afterLineTop, setAfterLineTop] = useState("13px");
   root.style.setProperty("--after-line-top", afterLineTop);
 
-  
-
   const handleClick = () => {
-    if (menuIsClosed) {
+    props.toggleMenu();
+    if (props.menuIsClosed) {
       hamburgerRef.current?.classList.toggle("open");
-      setMenuIsOpen((prev) => !prev);
       setBeforeLineTransform((prev) => "rotate(40deg)");
       setBeforeLineTop((prev) => "0px");
       setAfterLineTransform((prev) => "rotate(-40deg)");
       setAfterLineTop((prev) => "0px");
     } else {
       hamburgerRef.current?.classList.toggle("open");
-      setMenuIsOpen((prev) => !prev);
       setBeforeLineTransform((prev) => "rotate(0deg)");
       setBeforeLineTop((prev) => "-13px");
       setAfterLineTransform((prev) => "rotate(0deg)");

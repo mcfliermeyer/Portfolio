@@ -10,14 +10,12 @@ import ILoveSection from "./components/ILoveSection";
 import SkillsSection from "./components/SkillsSection";
 import { useRef } from "react";
 
-const StyledApp = styled.div`
-`;
-
+const StyledApp = styled.div``;
 
 function App() {
+  const aboutMeRef = useRef<HTMLInputElement>(null);
   const projectRef = useRef<HTMLInputElement>(null);
   const skillsRef = useRef<HTMLInputElement>(null);
-  const aboutMeRef = useRef<HTMLInputElement>(null);
   const contactRef = useRef<HTMLInputElement>(null);
   const overlayOffset = 62;
 
@@ -30,14 +28,19 @@ function App() {
       top: offset,
       behavior: "smooth",
     });
-  }
+  };
   return (
     <Theme>
       <StyledApp>
         <GlobalStyle />
-        <NavBar navToSkills={() => scrollToElement(skillsRef)}/>
-        <SvgAndPhoto />
+        <NavBar
+          navToAboutMe={() => scrollToElement(aboutMeRef)}
+          navToProjects={() => scrollToElement(projectRef)}
+          navToSkills={() => scrollToElement(skillsRef)}
+          navToContact={() => scrollToElement(contactRef)}
+        />
         <div ref={aboutMeRef}></div>
+        <SvgAndPhoto />
         <AboutMeSection />
         <div ref={projectRef}></div>
         <Projects />
