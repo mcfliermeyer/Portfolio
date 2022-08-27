@@ -13,6 +13,13 @@ interface NavProps {
 }
 
 const StyledNavBar = styled.div`
+  :root {
+    //setting starting variables for pseudo selectors to be changed on open in js
+    --before-line-transform: rotate(0deg);
+    --before-line-top: -15px;
+    --after-line-transform: rotate(0deg);
+    --after-line-top: 15px;
+  }
   background-color: ${(props) => props.theme.colors.primaryBlue};
   margin: 0;
   padding: 0;
@@ -117,28 +124,62 @@ export const NavBar = (props: NavProps) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
 
+  const hamburgerRef = useRef<HTMLSpanElement>(null);
+  const hamburgerLineSpacing = "16px";
+  const root = document.documentElement;
+
+  //before psuedo element
+  const [beforeLineTransform, setBeforeLineTransform] =
+    useState("rotate(0deg)");
+  root.style.setProperty("--before-line-transform", beforeLineTransform);
+  const [beforeLineTop, setBeforeLineTop] = useState(
+    "-" + hamburgerLineSpacing
+  );
+  root.style.setProperty("--before-line-top", beforeLineTop);
+
+  // //after psuedo element
+  const [afterLineTransform, setAfterLineTransform] = useState("rotate(0deg)");
+  root.style.setProperty("--after-line-transform", afterLineTransform);
+  const [afterLineTop, setAfterLineTop] = useState(hamburgerLineSpacing);
+  root.style.setProperty("--after-line-top", afterLineTop);
+
   const toggleMenu = () => {
     menuRef.current?.classList.toggle("change-bg");
     navRef.current?.classList.toggle("move-nav");
-    setMenuIsClosed(prev => !menuIsClosed)
+    setMenuIsClosed((prev) => !menuIsClosed);
+
+    if (menuIsClosed) {
+      hamburgerRef.current?.classList.toggle("open");
+      setBeforeLineTransform((prev) => "rotate(40deg)");
+      setBeforeLineTop((prev) => "0px");
+      setAfterLineTransform((prev) => "rotate(-40deg)");
+      setAfterLineTop((prev) => "0px");
+    } else {
+      hamburgerRef.current?.classList.toggle("open");
+      setBeforeLineTransform((prev) => "rotate(0deg)");
+      setBeforeLineTop((prev) => hamburgerLineSpacing);
+      setAfterLineTransform((prev) => "rotate(0deg)");
+      setAfterLineTop((prev) => "-" + hamburgerLineSpacing);
+    }
   };
 
+  //needs some rework here. maybe a hook? i cant think that through at the moment
   const navToAboutMe = () => {
-    props.navToAboutMe()
-    toggleMenu()
-  }
+    props.navToAboutMe();
+    toggleMenu();
+  };
   const navToProjects = () => {
-    props.navToProjects()
-    toggleMenu()
-  }
+    props.navToProjects();
+    toggleMenu();
+  };
   const navToSkills = () => {
-    props.navToSkills()
-    toggleMenu()
-  }
+    props.navToSkills();
+    toggleMenu();
+  };
   const navToContact = () => {
-    props.navToContact()
-    toggleMenu()
-  }
+    props.navToContact();
+    toggleMenu();
+  };
   return (
     <StyledNavBar>
       <LogoIconSVG height={130} width={130} viewBox="-5 -5 320 320" />
@@ -146,7 +187,11 @@ export const NavBar = (props: NavProps) => {
         <h1 className="first-name">MARK</h1>
         <h1 className="last-name">Meyer</h1>
       </div>
-      <HamburgerMenu toggleMenu={toggleMenu} menuIsClosed={menuIsClosed} />
+      <HamburgerMenu
+        toggleMenu={toggleMenu}
+        menuIsClosed={menuIsClosed}
+        hamburgerRef={hamburgerRef}
+      />
       <nav className="nav" ref={navRef}>
         <ul>
           <li>

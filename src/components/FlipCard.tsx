@@ -4,6 +4,8 @@ import FlipArrow from "./FlipArrow";
 import useElementSize from "./hooks/useElementSize";
 import TechStackIconWrapper from "./TechStackIconWrapper";
 
+//////////// STRONGLY NEEDING TO GO BACK THROUGH AND CLEAN THIS UP??????????//////////////
+
 const StyledFlipCard = styled.div<FlipCardProps>`
   border-bottom: 1px white solid;
   margin-inline: auto;
@@ -140,10 +142,7 @@ const FlipCard = (props: Props) => {
             : { height: `${frontCardHeight}px` }
         }
       >
-        <div
-          className="front"
-          ref={frontRef}
-        >
+        <div className="front" ref={frontRef}>
           <h1 className="title">{props.title}</h1>
           {props.frontComponents}
           <button
@@ -153,10 +152,7 @@ const FlipCard = (props: Props) => {
             more detail
           </button>
         </div>
-        <div
-          className="back"
-          ref={backRef}
-        >
+        <div className="back" ref={backRef}>
           <FlipArrow
             className="back-arrow-container"
             onClick={handleDetailClick}
@@ -170,8 +166,3 @@ const FlipCard = (props: Props) => {
 
 FlipCard.Styled = StyledFlipCard;
 export default FlipCard;
-
-//to do figure out the difference between props in the styled componenet interface props and the normal props interface. no clue. just
-//erased "background" from the interface of normal props and its yelling at me
-
-//second update go to this site to fix component https://blog.devgenius.io/using-styled-components-and-props-with-typescript-react-a3c32a496f47

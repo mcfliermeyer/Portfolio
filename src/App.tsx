@@ -13,6 +13,7 @@ import { useRef } from "react";
 const StyledApp = styled.div``;
 
 function App() {
+  //need to bundle up nicer. not DRY
   const aboutMeRef = useRef<HTMLInputElement>(null);
   const projectRef = useRef<HTMLInputElement>(null);
   const skillsRef = useRef<HTMLInputElement>(null);
