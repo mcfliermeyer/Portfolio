@@ -1,0 +1,15 @@
+<svg viewBox="0 0 510 520" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style fonts="Montserrat"></style>
+  </defs>
+  <path style="fill:#2D2D2D;" d="M 0.004 334.4 L 0.004 10.4 C 0.004 4.8 4.804 0 10.404 0 L 501.604 0 C 507.204 0 512.004 4.8 512.004 10.4 L 512.004 334.4 C 512.004 334.4 -1.596 332.8 0.004 334.4 Z"></path>
+  <g transform="matrix(1, 0, 0, 1, -0.000427, -20.802006)">
+    <path style="fill:#BCBCBC;" d="M0.004,355.202v41.6c0,5.6,4.8,10.4,10.4,10.4h491.2c5.6,0,10.4-4.8,10.4-10.4v-41.6
+		C512.004,355.202-1.596,356.802,0.004,355.202z"></path>
+    <rect x="146.404" y="480.802" style="fill:#BCBCBC;" width="219.2" height="10.4"></rect>
+  </g>
+  <polygon style="fill:#2D2D2D;" points="328.804 460 183.204 460 193.604 386.4 318.404 386.4"></polygon>
+  <rect x="20.804" y="20.8" style="fill:#7FCACB;" width="470.4" height="292.8"></rect>
+  <text style="fill: #fff; font-family: Montserrat; font-size: 100px; font-weight: 600; text-anchor: middle; white-space: pre;" x="262.392" y="188.511">live site
+</text>
+</svg>
