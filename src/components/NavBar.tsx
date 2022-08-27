@@ -62,6 +62,7 @@ const StyledNavBar = styled.div`
   }
   ${HamburgerMenu.Styled} {
     position: absolute;
+    z-index: 2;
     top: 0;
     right: 0.75rem;
     bottom: 0;
@@ -103,7 +104,7 @@ const StyledNavBar = styled.div`
     background: radial-gradient(
       farthest-corner at 340px 580px,
       #ec6051 25%,
-      #ffc753 65%
+      #ffc753 55%
     );
     border-radius: 50%;
     transition: 0.15s ease-in;
@@ -112,10 +113,12 @@ const StyledNavBar = styled.div`
     width: 22.5rem;
     height: 29.5rem;
     border: 1px black solid;
+    z-index: 1;
   }
   .move-nav {
     top: 4rem;
     right: 0.7rem;
+    z-index: 2;
   }
 `;
 
