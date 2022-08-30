@@ -1,5 +1,8 @@
+import React from "react";
 import styled from "styled-components";
 import NewSection from "./NewSection";
+const { REACT_APP_USER_ID, REACT_APP_TEMPLATE_ID, REACT_APP_SERVICE_ID } =
+  process.env;
 const FORM_ENDPOINT = "change to .env file";
 
 const StyledContact = styled.div`
@@ -59,8 +62,28 @@ const StyledContact = styled.div`
 
 type Props = {};
 const Contact = (props: Props) => {
-  const handleSubmit = () => {
-    console.log("handling submit");
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault(); //not sure if needed
+
+    let emailData = {
+      service_id: REACT_APP_SERVICE_ID,
+      template_id: REACT_APP_TEMPLATE_ID,
+      user_id: REACT_APP_USER_ID,
+      template_params: {
+        from_name: "James",
+        message: "fart knocker checking to see if you farted yet??!",
+      },
+    };
+
+    fetch("https://api.emailjs.com/api/v1.0/email/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(emailData),
+    })
+      .then((res) => res.text())//response is html and not json
+      .then((data) => console.log(data))
   };
 
   return (
@@ -69,8 +92,8 @@ const Contact = (props: Props) => {
       <form
         action={FORM_ENDPOINT}
         onSubmit={handleSubmit}
-        method="POST"
-        target="_blank"
+        // method="POST"
+        // target="_blank"
       >
         <input type="text" placeholder="your name" className="name" required />
         <input type="email" placeholder="email" className="email" required />
@@ -82,7 +105,7 @@ const Contact = (props: Props) => {
           rows={4}
           className="message"
         ></textarea>
-        <button className="send-msg-btn" onClick={() => handleSubmit()}>
+        <button className="send-msg-btn" onClick={handleSubmit}>
           Send message
         </button>
       </form>
