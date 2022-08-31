@@ -39,10 +39,11 @@ const StyledFlipCard = styled.div<FlipCardProps>`
     border: none;
     border-radius: 1em;
   }
-  .more-detail-btn:hover, .more-detail-btn:focus-visible {
+  .more-detail-btn:hover,
+  .more-detail-btn:focus-visible {
     box-shadow: 3px 3px 20px -4px ${(p) => p.overload?.ctaColor},
       -3px -3px 20px -4px ${(p) => p.overload?.ctaColor};
-      outline: none;
+    outline: none;
   }
 
   @media (min-width: 1200px) {
@@ -60,6 +61,12 @@ const StyledFlipCard = styled.div<FlipCardProps>`
       right: 20px;
       bottom: 90px;
     } */
+    .links {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 90px;
+    }
   }
 
   /* css card flip logic  */

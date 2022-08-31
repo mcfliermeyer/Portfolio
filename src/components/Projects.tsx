@@ -40,12 +40,6 @@ const StyledProjects = styled.div`
       }
     }
   }
-  .links {
-    position: absolute;
-    left: 20px;
-    right: 20px;
-    bottom: 90px;
-  }
 `;
 
 interface ProjectProps {
