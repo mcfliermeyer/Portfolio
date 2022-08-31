@@ -1,6 +1,19 @@
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
+export interface MyTheme {
+  colors: {
+    primaryBlue: string;
+    darkerBlue: string;
+    primaryPinkish: string;
+    darkerPinkish: string;
+    primaryYellow: string;
+    darkerYellow: string;
+    primaryPurple: string;
+    darkerPurple: string;
+  };
+}
+
+const GlobalStyle = createGlobalStyle<{theme: MyTheme}>`
   html {
     font-size: 16px;
     margin: 0;

@@ -14,7 +14,8 @@ import tailwindLogo from "../resources/tailwindcss.svg";
 import reactLogo from "../resources/react.svg";
 import typescriptLogo from "../resources/typescript.svg";
 import styledComponentsLogo from "../resources/styledComponents.svg";
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent } from "react";
+import { MyTheme } from "../theme/globalStyles";
 // import Theme from "../theme/Theme";
 
 const StyledProjects = styled.div`
@@ -31,12 +32,19 @@ const StyledProjects = styled.div`
       grid-gap: 20px;
       ${FlipCard.Styled} {
         min-width: 90%;
-        .front, .back {
+        .front,
+        .back {
           border-radius: 1em;
           min-height: 420px;
         }
       }
     }
+  }
+  .links {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 90px;
   }
 `;
 
@@ -45,14 +53,19 @@ interface ProjectProps {
 }
 
 const Projects: FunctionComponent<ProjectProps> = ({}) => {
-  
+  const theme = useTheme() as MyTheme
+  const cardColor = theme.colors.darkerPinkish;
+  const ctaColor = theme.colors.primaryYellow;
+  const ctaFontColor = "#000000"
   return (
     <StyledProjects>
       <NewSection title={"Projects"} />
       <div className="large-screen-flex">
         <FlipCard
           overload={{
-            bg: "#FE7868",
+            backgroundColor: cardColor,
+            ctaColor: ctaColor,
+            ctaFontColor: ctaFontColor,
             isTop: true,
           }}
           title={"Manager Locator"}
@@ -62,10 +75,12 @@ const Projects: FunctionComponent<ProjectProps> = ({}) => {
               location up to date. I did not deploy this app but the code is on
               my github. This was a fun backend project to learn NodeJs.
             </p>,
-            <TechStackIconWrapper icons={[tailwindLogo, nodeLogo, htmlLogo]} />,
+            <div className="links">
+              <GithubIconWithLink link="https://github.com/mcfliermeyer/FieldTechBossAlert" />
+            </div>,
           ]}
           backComponents={[
-            <GithubIconWithLink link="https://github.com/mcfliermeyer/FieldTechBossAlert" />,
+            <TechStackIconWrapper icons={[tailwindLogo, nodeLogo, htmlLogo]} />,
             <h1 className="card-title">NodeJs</h1>,
             <p>
               Every project teaches me something new. This project specifically
@@ -88,7 +103,9 @@ const Projects: FunctionComponent<ProjectProps> = ({}) => {
         />
         <FlipCard
           overload={{
-            bg: "#FE7868",
+            backgroundColor: cardColor,
+            ctaColor: ctaColor,
+            ctaFontColor: ctaFontColor,
           }}
           title={"Quizzical"}
           frontComponents={[
@@ -97,13 +114,15 @@ const Projects: FunctionComponent<ProjectProps> = ({}) => {
               which contains questions and answers. At the end, the quiz shows
               all right and wrong answers.
             </p>,
+            <div className="links">
+              <GithubIconWithLink link="https://github.com/mcfliermeyer/Quizzical" />
+              <LiveSiteWithLink link="https://flier-quizzical-app.netlify.app/" />
+            </div>,
+          ]}
+          backComponents={[
             <TechStackIconWrapper
               icons={[reactLogo, styledComponentsLogo, htmlLogo]}
             />,
-          ]}
-          backComponents={[
-            <GithubIconWithLink link="https://github.com/mcfliermeyer/Quizzical" />,
-            <LiveSiteWithLink link="https://flier-quizzical-app.netlify.app/" />,
             <h1 className="card-title">General Learning</h1>,
             <p>
               This project was my first large scale project with no real
@@ -130,7 +149,9 @@ const Projects: FunctionComponent<ProjectProps> = ({}) => {
         />
         <FlipCard
           overload={{
-            bg: "#FE7868",
+            backgroundColor: cardColor,
+            ctaColor: ctaColor,
+            ctaFontColor: ctaFontColor,
             isBottom: true,
           }}
           title={"This Portfolio"}
@@ -139,12 +160,14 @@ const Projects: FunctionComponent<ProjectProps> = ({}) => {
               Of course this portfolio. I decided to try out TypeScript for this
               portfolio along with an old favorite of styled-components.
             </p>,
+            <div className="links">
+              <GithubIconWithLink link="https://github.com/mcfliermeyer/Portfolio" />
+            </div>,
+          ]}
+          backComponents={[
             <TechStackIconWrapper
               icons={[typescriptLogo, styledComponentsLogo, htmlLogo]}
             />,
-          ]}
-          backComponents={[
-            <GithubIconWithLink link="https://github.com/mcfliermeyer/Portfolio" />,
             <h1 className="card-title">TypeScript</h1>,
             <p>
               This is my first Typescript project. So far I have learned

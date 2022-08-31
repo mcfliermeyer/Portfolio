@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import FlipCard from "./FlipCard";
 import NewSection from "./NewSection";
 import TechStackIconWrapper from "./TechStackIconWrapper";
@@ -13,6 +13,7 @@ import htmlLogo from "../resources/html-1.svg";
 import cssLogo from "../resources/css-3.svg";
 import styledComponentsLogo from "../resources/styledComponents.svg";
 import appDownloads from "../resources/appDownloads.jpg";
+import { MyTheme } from "../theme/globalStyles";
 
 const StyledSkillsSection = styled.section`
   .img-container {
@@ -46,13 +47,19 @@ const StyledSkillsSection = styled.section`
 `;
 
 const SkillsSection = () => {
+  const theme = useTheme() as MyTheme
+  const cardFontColor = "#000000";
+  const cardColor = theme.colors.primaryYellow;
+  const ctaColor = theme.colors.darkerPinkish;
   return (
     <StyledSkillsSection>
       <NewSection title={"Skills"} />
       <div className="large-screen-flex">
         <FlipCard
           overload={{
-            bg: "#ffc753",
+            fontColor: cardFontColor,
+            backgroundColor: cardColor,
+            ctaColor: ctaColor,
             isTop: true,
           }}
           title={"Web"}
@@ -80,7 +87,9 @@ const SkillsSection = () => {
         />
         <FlipCard
           overload={{
-            bg: "#ffc753",
+            fontColor: cardFontColor,
+            backgroundColor: cardColor,
+            ctaColor: ctaColor,
             isBottom: true,
           }}
           title={"Mobile"}

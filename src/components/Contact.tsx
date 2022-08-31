@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import NewSection from "./NewSection";
 const { REACT_APP_USER_ID, REACT_APP_TEMPLATE_ID, REACT_APP_SERVICE_ID } =
@@ -62,43 +62,37 @@ const StyledContact = styled.div`
 
 type Props = {};
 const Contact = (props: Props) => {
-  const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault(); //not sure if needed
-
-    let emailData = {
-      service_id: REACT_APP_SERVICE_ID,
-      template_id: REACT_APP_TEMPLATE_ID,
-      user_id: REACT_APP_USER_ID,
-      template_params: {
-        from_name: "James",
-        message: "fart knocker checking to see if you farted yet??!",
-      },
-    };
-
-    fetch("https://api.emailjs.com/api/v1.0/email/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(emailData),
-    })
-      .then((res) => res.text())//response is html and not json
-      .then((data) => console.log(data))
-  };
-
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   return (
     <StyledContact>
       <NewSection title={"Contact"} subtitle={"me for more information"} />
-      <form
-        action={FORM_ENDPOINT}
-        onSubmit={handleSubmit}
-        // method="POST"
-        // target="_blank"
-      >
-        <input type="text" placeholder="your name" className="name" required />
-        <input type="email" placeholder="email" className="email" required />
+      <form onSubmit={handleSubmit}>
+        <input
+          value={formState.name}
+          name="name"
+          onChange={handleChange}
+          type="text"
+          placeholder="your name"
+          className="name"
+          required
+        />
+        <input
+          value={formState.email}
+          name="email"
+          onChange={handleChange}
+          type="email"
+          placeholder="email"
+          className="email"
+          required
+        />
         <textarea
+          value={formState.message}
           name="message"
+          onChange={handleChange}
           placeholder="message"
           id=""
           cols={30}
@@ -111,5 +105,52 @@ const Contact = (props: Props) => {
       </form>
     </StyledContact>
   );
+
+  function handleChange(e: React.ChangeEvent): void {
+    const target = e.target as HTMLInputElement;
+    setFormState((prev) => ({
+      ...prev,
+      [target.name]: target.value,
+    }));
+  }
+
+  function handleSubmit(e: React.SyntheticEvent): void {
+    e.preventDefault(); //not sure if needed but here anyways
+    if (!isValidEmail(formState.email)) {
+      console.log("please enter email")
+      return
+    }
+
+    let emailData = {
+      service_id: REACT_APP_SERVICE_ID,
+      template_id: REACT_APP_TEMPLATE_ID,
+      user_id: REACT_APP_USER_ID,
+      template_params: {
+        name: `${formState.name}`,
+        email: `${formState.email}`,
+        message: `${formState.message}`,
+      },
+    };
+
+    setFormState({
+      name: "",
+      email: "",
+      message: "",
+    });
+
+    fetch("https://api.emailjs.com/api/v1.0/email/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(emailData),
+    })
+      .then((res) => res.text()) //response is html and not json
+      .then((data) => data);
+  }
+
+  function isValidEmail(email: string): boolean {
+    return /\S+@\S+\.\S+/.test(email);
+  }
 };
 export default Contact;

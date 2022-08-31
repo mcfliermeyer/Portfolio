@@ -11,14 +11,14 @@ const StyledFlipCard = styled.div<FlipCardProps>`
   margin-inline: auto;
   display: block;
   position: relative;
-  color: #fff;
+  color: ${(p) => p.overload?.fontColor || "#ffffff"};
 
   @media (min-width: 425px) {
     max-width: 800px;
     margin-inline: auto;
   }
   .title {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 600;
     font-family: ${(props) => props.theme.fonts.nameTitleFont};
   }
@@ -28,8 +28,8 @@ const StyledFlipCard = styled.div<FlipCardProps>`
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
-    background-color: ${(props) => props.theme.colors.primaryBlue};
-    color: white;
+    background-color: ${(props) => props.overload?.ctaColor};
+    color: ${(p) => p.overload?.ctaFontColor || "#ffffff"};
     font-size: 1rem;
     font-weight: 600;
     font-family: ${(props) => props.theme.fonts.nameTitleFont};
@@ -37,22 +37,29 @@ const StyledFlipCard = styled.div<FlipCardProps>`
     padding: 1em 2em;
     margin: 0.5em;
     border: none;
-    box-shadow: 0 3px 2px 1px rgb(128, 128, 128, 0.3);
+    border-radius: 1em;
+  }
+  .more-detail-btn:hover, .more-detail-btn:focus-visible {
+    box-shadow: 3px 3px 20px -4px ${(p) => p.overload?.ctaColor},
+      -3px -3px 20px -4px ${(p) => p.overload?.ctaColor};
+      outline: none;
   }
 
   @media (min-width: 1200px) {
     .more-detail-btn {
       position: absolute;
       bottom: 15px;
-      left: 20px;
-      right: 20px;
+      left: 40px;
+      right: 40px;
+      margin-inline: auto;
+      max-width: 12rem;
     }
-    ${TechStackIconWrapper.Styled} {
+    /* ${TechStackIconWrapper.Styled} {
       position: absolute;
       left: 20px;
       right: 20px;
       bottom: 90px;
-    }
+    } */
   }
 
   /* css card flip logic  */
@@ -72,7 +79,7 @@ const StyledFlipCard = styled.div<FlipCardProps>`
       left: 0;
       right: 0;
       padding: 1em 1.5em 0.5em;
-      background-color: ${(props) => props.overload?.bg};
+      background-color: ${(props) => props.overload?.backgroundColor};
       border-top-left-radius: ${(props) => (props.overload?.isTop ? "1em" : 0)};
       border-top-right-radius: ${(props) =>
         props.overload?.isTop ? "1em" : 0};
@@ -87,7 +94,6 @@ const StyledFlipCard = styled.div<FlipCardProps>`
     }
     .back {
       transform: rotateY(180deg);
-      /* padding: 1rem 1.5rem; */
       .back-arrow-container {
         position: absolute;
         top: -25px;
@@ -107,8 +113,10 @@ interface FlipCardProps {
   overload?: {
     isTop?: Boolean;
     isBottom?: Boolean;
-    bg: Color;
-    fontColor?: Color;
+    backgroundColor?: string;
+    fontColor?: string;
+    ctaColor?: Color;
+    ctaFontColor?: Color;
   };
 }
 interface Props extends FlipCardProps {
@@ -129,7 +137,10 @@ const FlipCard = (props: Props) => {
   return (
     <StyledFlipCard
       overload={{
-        bg: props.overload?.bg || "#a168fe",
+        backgroundColor: props.overload?.backgroundColor,
+        fontColor: props.overload?.fontColor,
+        ctaColor: props.overload?.ctaColor,
+        ctaFontColor: props.overload?.ctaFontColor,
         isTop: props.overload?.isTop,
         isBottom: props.overload?.isBottom,
       }}
