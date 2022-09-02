@@ -11,7 +11,11 @@ const StyledFlipCard = styled.div<FlipCardProps>`
   margin-inline: auto;
   display: block;
   position: relative;
-  color: ${(p) => p.overload?.fontColor || "#ffffff"};
+  color: ${(p) => p.overload?.fontColor || "white"};
+
+  .hightlight-text {
+    color: purple;
+  }
 
   @media (min-width: 425px) {
     max-width: 800px;
@@ -55,17 +59,9 @@ const StyledFlipCard = styled.div<FlipCardProps>`
       margin-inline: auto;
       max-width: 12rem;
     }
-    /* ${TechStackIconWrapper.Styled} {
-      position: absolute;
-      left: 20px;
-      right: 20px;
-      bottom: 90px;
-    } */
     .links {
-      position: absolute;
-      left: 20px;
-      right: 20px;
-      bottom: 90px;
+      margin-inline: auto;
+      margin-bottom: 90px;
     }
   }
 

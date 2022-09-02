@@ -5,8 +5,8 @@ import TechStackIconWrapper from "./TechStackIconWrapper";
 import tailwindLogo from "../resources/tailwindcss.svg";
 import reactLogo from "../resources/react.svg";
 import typescriptLogo from "../resources/typescript.svg";
-import swiftLogo from "../resources/swift.svg";
-import androidLogo from "../resources/androidLogo.svg";
+import {ReactComponent as swiftLogo} from "../resources/swift.svg";
+import {ReactComponent as androidLogo} from "../resources/androidLogo.svg";
 import javascriptLogo from "../resources/javascriptLogo.svg";
 import nodeLogo from "../resources/nodejs-icon.svg";
 import htmlLogo from "../resources/html-1.svg";
@@ -14,6 +14,19 @@ import cssLogo from "../resources/css-3.svg";
 import styledComponentsLogo from "../resources/styledComponents.svg";
 import appDownloads from "../resources/appDownloads.jpg";
 import { MyTheme } from "../theme/globalStyles";
+import Tooltip from "./Tooltip";
+
+const StyledAndroidLogo = styled(androidLogo)`
+  width: 60px;
+  height: auto;
+  margin: 0.5rem;
+`;
+
+const StyledSwiftLogo = styled(swiftLogo)`
+  width: 60px;
+  height: auto;
+  margin: 0.5rem;
+`;
 
 const StyledSkillsSection = styled.section`
   .img-container {
@@ -43,6 +56,12 @@ const StyledSkillsSection = styled.section`
         }
       }
     }
+  }
+  .mobile-icons {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 90px;
   }
 `;
 
@@ -99,7 +118,15 @@ const SkillsSection = () => {
               eventually released an app for iOS. I learned Swift and Android
               along the way.
             </p>,
-            <MobileSkillIcons key={2} />,
+            <div className="mobile-icons">
+              <Tooltip content="Android">
+                <StyledAndroidLogo />
+              </Tooltip>
+              ,
+              <Tooltip content="Swift">
+                <StyledSwiftLogo />
+              </Tooltip>
+            </div>,
           ]}
           backComponents={[
             <p>
@@ -143,7 +170,4 @@ function WebSkillIcons() {
       ]}
     />
   );
-}
-function MobileSkillIcons() {
-  return <TechStackIconWrapper icons={[swiftLogo, androidLogo]} />;
 }

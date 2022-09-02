@@ -7,6 +7,11 @@ const StyledGithubIconWithLink = styled.a`
     width: 65px;
     height: auto;
     padding: 0.5rem;
+    padding-inline: 1.2rem;
+    transition: all .15s ease-in-out;
+  }
+  .icon:hover {
+    transform: scale(1.15);
   }
 `;
 

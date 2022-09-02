@@ -1,58 +1,103 @@
+import { useState } from "react";
 import styled, { useTheme } from "styled-components";
 
 //components
 import NewSection from "./NewSection";
 import FlipCard from "./FlipCard";
-import TechStackIconWrapper from "./TechStackIconWrapper";
 import GithubIconWithLink from "./GithubIconWithLink";
 import LiveSiteWithLink from "./LiveSiteWithLink";
 
 //logos and svgs
-import htmlLogo from "../resources/html-1.svg";
-import nodeLogo from "../resources/nodejs-icon.svg";
-import tailwindLogo from "../resources/tailwindcss.svg";
-import reactLogo from "../resources/react.svg";
-import typescriptLogo from "../resources/typescript.svg";
-import styledComponentsLogo from "../resources/styledComponents.svg";
+import { ReactComponent as NodeLogo } from "../resources/nodejs-icon.svg";
+import { ReactComponent as TailwindLogo } from "../resources/tailwindcss.svg";
+import { ReactComponent as ReactLogo } from "../resources/react.svg";
+import { ReactComponent as TypescriptLogo } from "../resources/typescript.svg";
+import { ReactComponent as StyledComponentsLogo } from "../resources/styledComponents.svg";
+import { ReactComponent as SwiftLogo } from "../resources/swift.svg";
+import { ReactComponent as AppleLaptopLogo } from "../resources/appleLaptopLogo.svg";
+import appDownloads from "../resources/appDownloads.jpg";
 import { FunctionComponent } from "react";
 import { MyTheme } from "../theme/globalStyles";
-// import Theme from "../theme/Theme";
+import LogoWithPositioning from "./LogoWithPositioning";
 
 const StyledProjects = styled.div`
   .card-title {
+    position: relative;
     font-size: 1.25rem;
     font-weight: 600;
     font-family: ${(props) => props.theme.fonts.nameTitleFont};
-    margin: 0 0 0.2rem;
+    margin: 0.7rem 0 0.2rem;
+    width: fit-content;
+    margin-inline: auto;
   }
   @media (min-width: 1200px) {
     .large-screen-flex {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
       grid-gap: 20px;
       ${FlipCard.Styled} {
         min-width: 90%;
         .front,
         .back {
           border-radius: 1em;
-          min-height: 420px;
+          min-height: 360px;
         }
       }
     }
   }
+  .img-container {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(226, 101, 77, 0.85);
+    img {
+      width: 100%;
+      border-radius: .4rem;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); //centers img
+      opacity: 1;
+    }
+    @media (min-width: 1200px) {
+      img {
+        width: 80%;
+      }
+    }
+  }
+  .apple {
+    width: 100px;
+    transition: all 0.2s ease-in-out;
+  }
+  .apple:hover {
+    transform: scale(1.2);
+  }
 `;
 
 interface ProjectProps {
-  ref?: React.RefObject<HTMLInputElement>
+  ref?: React.RefObject<HTMLInputElement>;
 }
 
-const Projects: FunctionComponent<ProjectProps> = ({}) => {
-  const theme = useTheme() as MyTheme
+const Projects: FunctionComponent<ProjectProps> = () => {
+  const [showModal, setShowModal] = useState(false);
+  const theme = useTheme() as MyTheme;
   const cardColor = theme.colors.darkerPinkish;
   const ctaColor = theme.colors.primaryYellow;
-  const ctaFontColor = "#000000"
+  const ctaFontColor = "#000000";
   return (
     <StyledProjects>
+      {showModal && (
+        <div className="img-container" onClick={() => setShowModal(false)}>
+          <img
+            src={appDownloads}
+            alt="apple analytics"
+            className="app-download-img"
+          />
+        </div>
+      )}
       <NewSection title={"Projects"} />
       <div className="large-screen-flex">
         <FlipCard
@@ -62,36 +107,71 @@ const Projects: FunctionComponent<ProjectProps> = ({}) => {
             ctaFontColor: ctaFontColor,
             isTop: true,
           }}
+          title={"This Portfolio"}
+          frontComponents={[
+            <p className="">
+              Of course this portfolio. I decided to try out{" "}
+              <span className="highlight-text">typescript</span> for this
+              portfolio. Each component is custom made using typescript with
+              styled-components.
+            </p>,
+            <div className="links">
+              <GithubIconWithLink link="https://github.com/mcfliermeyer/Portfolio" />
+            </div>,
+          ]}
+          backComponents={[
+            <h1 className="card-title">
+              <LogoWithPositioning top={"-16px"} left={"-70px"} width={"60px"}>
+                <TypescriptLogo />
+              </LogoWithPositioning>
+              TypeScript
+            </h1>,
+            <p>
+              This is my first Typescript project. I have learned TypeScript is
+              a great way to catch errors before runtime. Having come from a
+              strongly typed programming language (iOS's Swift), Typescript has
+              a familiar feel to it and I do enjoy using the features it
+              provides.
+            </p>,
+          ]}
+        />
+        <FlipCard
+          overload={{
+            backgroundColor: cardColor,
+            ctaColor: ctaColor,
+            ctaFontColor: ctaFontColor,
+          }}
           title={"Manager Locator"}
           frontComponents={[
             <p className="">
-              This app was created to help my team keep my managers exact
-              location up to date. I did not deploy this app but the code is on
-              my github. This was a fun backend project to learn NodeJs.
+              This app was created with NodeJs to help my team keep my managers
+              exact location up to date. I did not deploy this app but the code
+              is on my github.
             </p>,
             <div className="links">
               <GithubIconWithLink link="https://github.com/mcfliermeyer/FieldTechBossAlert" />
             </div>,
           ]}
           backComponents={[
-            <TechStackIconWrapper icons={[tailwindLogo, nodeLogo, htmlLogo]} />,
-            <h1 className="card-title">NodeJs</h1>,
+            <h1 className="card-title">
+              <LogoWithPositioning top="-20px" left="-70px" width="60px">
+                <NodeLogo />
+              </LogoWithPositioning>
+              NodeJs
+            </h1>,
             <p>
-              Every project teaches me something new. This project specifically
-              taught me some backend technologies. Specifically NodeJs and how
-              to use Node to create API paths that can then make an outside API
-              call. Server side rendering was also a new concept to me before
-              this project. Node was a lot of fun to play with and I look
-              forward to using it again for future projects.
+              I used NodeJs along with Express for this backend project. I
+              learned about RESTful API paths and server side rendering.
             </p>,
+            <h1 className="card-title">
+              <LogoWithPositioning top={"-0px"} left={"-70px"} width={"60px"}>
+                <TailwindLogo />
+              </LogoWithPositioning>
+              TailwindCss
+            </h1>,
             <p>
-              Tailwind was the other technology I decided to use and learn. At
-              first I was very hesitant, but I quickly saw a dramatic increase
-              in my productivity. Tailwind uses inline prebuilt classes that
-              were much more intuitive than I had thought they would be.
-              Tailwind is at the top of my list for any quick personal projects.
-              Although a large project could start to look messy with too many
-              inline classes I think.
+              Tailwind was a really quick way to markup my html. It was very
+              intuitive and easy to learn.
             </p>,
           ]}
         />
@@ -105,8 +185,8 @@ const Projects: FunctionComponent<ProjectProps> = ({}) => {
           frontComponents={[
             <p className="">
               The Quizzical app is from Scrimba.com. It hooks into a RESTful API
-              which contains questions and answers. At the end, the quiz shows
-              all right and wrong answers.
+              which contains questions and answers. At the end, the quiz
+              highlights all right and wrong answers.
             </p>,
             <div className="links">
               <GithubIconWithLink link="https://github.com/mcfliermeyer/Quizzical" />
@@ -114,30 +194,34 @@ const Projects: FunctionComponent<ProjectProps> = ({}) => {
             </div>,
           ]}
           backComponents={[
-            <TechStackIconWrapper
-              icons={[reactLogo, styledComponentsLogo, htmlLogo]}
-            />,
             <h1 className="card-title">General Learning</h1>,
             <p>
-              This project was my first large scale project with no real
-              guidance to follow from a tutorial standpoint. I cannot understate
-              how much this project taught me. I had learned and interacted with
-              API's previously to building this. However, using this API felt
-              more "real world" than the learning API's I had used previously.
-              Learning and destructuring and restructuring data to my own needs
-              was an eye opener. I also dove into and learned how to use new
-              techniques and styles. I say often that "each project teaches me
-              something new." WELL, this project taught me a whole new world of
-              web and app development exist, I just need to know how to find it.
+              This project was my first large scale web project with no real
+              guidance to follow from a tutorial standpoint. I learned about
+              RESTfull API's.
             </p>,
-            <h1 className="card-title">React</h1>,
+            <h1 className="card-title">
+              <LogoWithPositioning top={"-20px"} left={"-70px"} width={"70px"}>
+                <ReactLogo />
+              </LogoWithPositioning>
+              React
+            </h1>,
             <p>
               This was my first solo React project. I learned a lot about React
-              Hooks. Styled-components was a big eye opener for me. Using React
-              to encapsulate logic and components made sense to me. Before using
-              styled-components, having to jump between each component and
-              scroll through the css really didn't sit right. React with hooks
-              and styled-components is a really enjoyable way for make projects.
+              and React Hooks. Using React to encapsulate logic and components
+              makes sense to me and helps me organize projects.
+            </p>,
+            <h1 className="card-title">
+              <LogoWithPositioning top={"-13px"} left={"-70px"} width={"60px"}>
+                <StyledComponentsLogo />
+              </LogoWithPositioning>
+              Styled-Components
+            </h1>,
+            <p>
+              Styled-components allows for even better encapsulation and
+              organization of css logic. It allows for quick changes to css
+              without having to dig through a large style-sheet. Themes and
+              global styles makes styling of components a breeze.
             </p>,
           ]}
         />
@@ -148,31 +232,34 @@ const Projects: FunctionComponent<ProjectProps> = ({}) => {
             ctaFontColor: ctaFontColor,
             isBottom: true,
           }}
-          title={"This Portfolio"}
+          title={"Color Code Finder"}
           frontComponents={[
             <p className="">
-              Of course this portfolio. I decided to try out TypeScript for this
-              portfolio along with an old favorite of styled-components.
+              This was an iOS app I made to help my co-workers with
+              telecommunication's color code. I used apple's Swift programming
+              language. I no longer pay to keep it on the app store, however I
+              plan to release a React Native app for both iOS and Android in the
+              future.
             </p>,
-            <div className="links">
-              <GithubIconWithLink link="https://github.com/mcfliermeyer/Portfolio" />
-            </div>,
           ]}
           backComponents={[
-            <TechStackIconWrapper
-              icons={[typescriptLogo, styledComponentsLogo, htmlLogo]}
-            />,
-            <h1 className="card-title">TypeScript</h1>,
+            <h1 className="card-title">
+              <LogoWithPositioning top={"-20px"} left={"-70px"} width={"60px"}>
+                <SwiftLogo />
+              </LogoWithPositioning>
+              Swift
+            </h1>,
             <p>
-              This is my first Typescript project. So far I have learned
-              TypeScript is a great way to catch errors before runtime. It does
-              seem much more time inefficient to write, however I think the
-              efficieny of catching bugs before compile time will more than make
-              up for it with larger projects that have multiple contributers.
-              Having come from a strongly typed programming language, Typescript
-              has a familiar feel to it and I do enjoy using the features it
-              provides.
+              Color Code Finder was the first app I deployed anywhere. I had
+              previously played with some programming languages. People at work
+              were having a hard time with color code. I had just started to
+              learn Swift. I recognized a problem, and this app was my solution.
+              It got a great reception. Although I really only told maybe 100
+              co-workers about it. I got messages from all across the country
+              about it. For a niche app, it did pretty well. I do not have the
+              code, but I do have a screenshot from apple's developer portal.
             </p>,
+            <AppleLaptopLogo className="apple" onClick={() => setShowModal(true)}/>,
           ]}
         />
       </div>

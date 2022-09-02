@@ -13,7 +13,13 @@ export interface MyTheme {
   };
 }
 
-const GlobalStyle = createGlobalStyle<{theme: MyTheme}>`
+const GlobalStyle = createGlobalStyle<{ theme: MyTheme }>`
+  :root {
+    --tooltip-text-color: white;
+    --tooltip-background-color: #28A2A4;
+    --tooltip-margin: 22px;
+    --tooltip-arrow-size: 0px;
+  }
   html {
     font-size: 16px;
     margin: 0;
@@ -41,6 +47,7 @@ const GlobalStyle = createGlobalStyle<{theme: MyTheme}>`
     line-height: 21px;
     max-width: 700px;
     margin-inline: auto;
+    text-align: left;
 
   }
   @media (min-width: 425px) {
@@ -49,6 +56,7 @@ const GlobalStyle = createGlobalStyle<{theme: MyTheme}>`
       line-height: 30px;
     }
   }
+  
 `;
 
 export default GlobalStyle;

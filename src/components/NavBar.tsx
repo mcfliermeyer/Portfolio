@@ -33,7 +33,7 @@ const StyledNavBar = styled.div`
   right: 0;
   z-index: 1;
   border-bottom: 1px black solid;
-  svg {
+  & > svg {
     position: absolute;
     top: 5px;
     left: 10px;

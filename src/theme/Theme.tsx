@@ -8,6 +8,7 @@ const theme = {
     primaryPinkish: "#FE7868",
     darkerPinkish: "#E2654D",
     primaryYellow: "#ffc753",
+    darkerYellow: "#FAA700",
     primaryPurple: "#8E48FE",
     darkerPurple: "#6201FE",
   },
