@@ -19,6 +19,7 @@ import appDownloads from "../resources/appDownloads.jpg";
 import { FunctionComponent } from "react";
 import { MyTheme } from "../theme/globalStyles";
 import LogoWithPositioning from "./LogoWithPositioning";
+import {ReactComponent as ScreenShotArrow} from "../resources/screen-shot-arrow.svg"
 
 const StyledProjects = styled.div`
   .card-title {
@@ -55,7 +56,7 @@ const StyledProjects = styled.div`
     background-color: rgb(226, 101, 77, 0.85);
     img {
       width: 100%;
-      border-radius: .4rem;
+      border-radius: 0.4rem;
       position: fixed;
       top: 50%;
       left: 50%;
@@ -70,10 +71,24 @@ const StyledProjects = styled.div`
   }
   .apple {
     width: 100px;
+    margin-inline: auto;
     transition: all 0.2s ease-in-out;
   }
   .apple:hover {
     transform: scale(1.2);
+  }
+  .apple-wrapper {
+    position: relative;
+    width: 100px;
+    margin-top: 2rem;
+    margin-inline: auto;
+  }
+  .screen-shot-arrow {
+    position: absolute;
+    top: -24px;
+    left: -35px;
+    width: 90px;
+    transform: rotate3d(1,2,4,-20deg);
   }
 `;
 
@@ -121,7 +136,7 @@ const Projects: FunctionComponent<ProjectProps> = () => {
           ]}
           backComponents={[
             <h1 className="card-title">
-              <LogoWithPositioning top={"-16px"} left={"-70px"} width={"60px"}>
+              <LogoWithPositioning top={"-16px"} left={"-60px"} width={"50px"}>
                 <TypescriptLogo />
               </LogoWithPositioning>
               TypeScript
@@ -154,7 +169,7 @@ const Projects: FunctionComponent<ProjectProps> = () => {
           ]}
           backComponents={[
             <h1 className="card-title">
-              <LogoWithPositioning top="-20px" left="-70px" width="60px">
+              <LogoWithPositioning top="-18px" left="-60px" width="50px">
                 <NodeLogo />
               </LogoWithPositioning>
               NodeJs
@@ -164,7 +179,7 @@ const Projects: FunctionComponent<ProjectProps> = () => {
               learned about RESTful API paths and server side rendering.
             </p>,
             <h1 className="card-title">
-              <LogoWithPositioning top={"-0px"} left={"-70px"} width={"60px"}>
+              <LogoWithPositioning top={"-10px"} left={"-64px"} width={"55px"}>
                 <TailwindLogo />
               </LogoWithPositioning>
               TailwindCss
@@ -212,7 +227,7 @@ const Projects: FunctionComponent<ProjectProps> = () => {
               makes sense to me and helps me organize projects.
             </p>,
             <h1 className="card-title">
-              <LogoWithPositioning top={"-13px"} left={"-70px"} width={"60px"}>
+              <LogoWithPositioning top={"-13px"} left={"-65px"} width={"60px"}>
                 <StyledComponentsLogo />
               </LogoWithPositioning>
               Styled-Components
@@ -250,16 +265,22 @@ const Projects: FunctionComponent<ProjectProps> = () => {
               Swift
             </h1>,
             <p>
-              Color Code Finder was the first app I deployed anywhere. I had
-              previously played with some programming languages. People at work
-              were having a hard time with color code. I had just started to
-              learn Swift. I recognized a problem, and this app was my solution.
-              It got a great reception. Although I really only told maybe 100
-              co-workers about it. I got messages from all across the country
-              about it. For a niche app, it did pretty well. I do not have the
-              code, but I do have a screenshot from apple's developer portal.
+              Color Code Finder was the first app I deployed anywhere. People at
+              work were having a hard time with telecommunication color code. I
+              had just started to learn Swift. I recognized a problem, and this
+              app was my solution. It got a great reception. Although I really
+              only told maybe 20 co-workers about it. I entually got messages
+              from all across the country about it. For a niche app, it did
+              pretty well. I do not have the code, but I do have a screenshot
+              from apple's developer portal here.
             </p>,
-            <AppleLaptopLogo className="apple" onClick={() => setShowModal(true)}/>,
+            <div className="apple-wrapper">
+              <AppleLaptopLogo
+                className="apple"
+                onClick={() => setShowModal(true)}
+              />
+              <ScreenShotArrow className="screen-shot-arrow" />
+            </div>,
           ]}
         />
       </div>

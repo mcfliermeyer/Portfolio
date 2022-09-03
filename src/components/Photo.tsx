@@ -41,13 +41,13 @@ const StyledPhoto = styled.div`
   }
 
   .picture-frame {
-    width: 140px;
+    width: 100px;
     border-radius: 11px;
     padding: 1rem 1.5rem;
   }
   @media (min-width: 425px) {
     .picture-frame {
-      width: 200px;
+      width: 140px;
       border-radius: 11px;
       padding: 1rem 1.5rem;
     }
