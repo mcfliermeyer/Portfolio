@@ -1,13 +1,16 @@
 {
   "files": {
     "main.css": "/Portfolio/static/css/main.e6c13ad2.css",
-    "main.js": "/Portfolio/static/js/main.6a93cd19.js",
+    "main.js": "/Portfolio/static/js/main.59e79c7c.js",
     "static/js/787.1ed0c42c.chunk.js": "/Portfolio/static/js/787.1ed0c42c.chunk.js",
     "static/media/portfolio-pic.jpg": "/Portfolio/static/media/portfolio-pic.0c363991a16fe67465b9.jpg",
     "static/media/appDownloads.jpg": "/Portfolio/static/media/appDownloads.81920cc385b35c7ddc83.jpg",
+    "static/media/screen-shot-arrow.svg": "/Portfolio/static/media/screen-shot-arrow.857aef1a3b88b773d9a560f4f7ad68df.svg",
     "static/media/androidLogo.svg": "/Portfolio/static/media/androidLogo.3239fbac70a839c3708c93f7e91ecacc.svg",
     "static/media/styledComponents.svg": "/Portfolio/static/media/styledComponents.d50016c47591986df2836827a9f79ee5.svg",
     "static/media/appleLaptopLogo.svg": "/Portfolio/static/media/appleLaptopLogo.7c163d8d7430ff68e75f75f0f907589a.svg",
+    "static/media/github-writing.svg": "/Portfolio/static/media/github-writing.54c360324a972ac0832738001e68b1db.svg",
+    "static/media/demo-writing.svg": "/Portfolio/static/media/demo-writing.64fc708f988f005274ef3fdcf5bf7d38.svg",
     "static/media/nodejs-icon.svg": "/Portfolio/static/media/nodejs-icon.615ffbea9529ca7047ed8a912bfd94b2.svg",
     "static/media/javascriptLogo.svg": "/Portfolio/static/media/javascriptLogo.e15fa1ec31c4fec8e753b8da93ec8425.svg",
     "static/media/githubLogo.svg": "/Portfolio/static/media/githubLogo.3dce527aa9297438f149ccab961fbcde.svg",
@@ -20,11 +23,11 @@
     "static/media/html-1.svg": "/Portfolio/static/media/html-1.f318c8b1d5945fa9adc827ae94849cb1.svg",
     "static/media/react.svg": "/Portfolio/static/media/react.5afb20866b4364603d3669cfe7a7af02.svg",
     "main.e6c13ad2.css.map": "/Portfolio/static/css/main.e6c13ad2.css.map",
-    "main.6a93cd19.js.map": "/Portfolio/static/js/main.6a93cd19.js.map",
+    "main.59e79c7c.js.map": "/Portfolio/static/js/main.59e79c7c.js.map",
     "787.1ed0c42c.chunk.js.map": "/Portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.6a93cd19.js"
+    "static/js/main.59e79c7c.js"
   ]
 }
