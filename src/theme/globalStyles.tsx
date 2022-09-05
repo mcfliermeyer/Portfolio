@@ -16,7 +16,7 @@ export interface MyTheme {
 const GlobalStyle = createGlobalStyle<{ theme: MyTheme }>`
   :root {
     --tooltip-text-color: white;
-    --tooltip-background-color: #28A2A4;
+    --tooltip-background-color: #6201FE;
     --tooltip-margin: 22px;
     --tooltip-arrow-size: 0px;
   }

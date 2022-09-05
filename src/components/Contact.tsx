@@ -57,6 +57,13 @@ const StyledContact = styled.div`
     margin-inline: auto;
     border: none;
     box-shadow: 0 3px 2px 1px rgb(128, 128, 128, 0.3);
+    border-radius: 1rem;
+  }
+  .send-msg-btn:hover,
+  .send-msg-btn:focus-visible {
+    box-shadow: 3px 3px 20px -4px ${(p) => p.theme.colors.primaryBlue},
+      -3px -3px 20px -4px ${(p) => p.theme.colors.primaryBlue};
+    outline: none;
   }
 `;
 

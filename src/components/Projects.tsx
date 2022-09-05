@@ -15,11 +15,11 @@ import { ReactComponent as TypescriptLogo } from "../resources/typescript.svg";
 import { ReactComponent as StyledComponentsLogo } from "../resources/styledComponents.svg";
 import { ReactComponent as SwiftLogo } from "../resources/swift.svg";
 import { ReactComponent as AppleLaptopLogo } from "../resources/appleLaptopLogo.svg";
+import {ReactComponent as ScreenShotArrow} from "../resources/screen-shot-arrow.svg"
 import appDownloads from "../resources/appDownloads.jpg";
 import { FunctionComponent } from "react";
 import { MyTheme } from "../theme/globalStyles";
 import LogoWithPositioning from "./LogoWithPositioning";
-import {ReactComponent as ScreenShotArrow} from "../resources/screen-shot-arrow.svg"
 
 const StyledProjects = styled.div`
   .card-title {
@@ -89,6 +89,7 @@ const StyledProjects = styled.div`
     left: -35px;
     width: 90px;
     transform: rotate3d(1,2,4,-20deg);
+    stroke: ${p => p.theme.colors.primaryBlue};
   }
 `;
 

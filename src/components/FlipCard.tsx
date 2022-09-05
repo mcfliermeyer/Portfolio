@@ -2,7 +2,6 @@ import { useState } from "react";
 import styled from "styled-components";
 import FlipArrow from "./FlipArrow";
 import useElementSize from "./hooks/useElementSize";
-import TechStackIconWrapper from "./TechStackIconWrapper";
 
 //////////// STRONGLY NEEDING TO GO BACK THROUGH AND CLEAN THIS UP??????????//////////////
 
@@ -58,10 +57,6 @@ const StyledFlipCard = styled.div<FlipCardProps>`
       right: 40px;
       margin-inline: auto;
       max-width: 12rem;
-    }
-    .links {
-      margin-inline: auto;
-      margin-bottom: 90px;
     }
   }
 
