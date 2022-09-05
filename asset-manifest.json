@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/Portfolio/static/css/main.e6c13ad2.css",
-    "main.js": "/Portfolio/static/js/main.59e79c7c.js",
+    "main.js": "/Portfolio/static/js/main.893f30dc.js",
     "static/js/787.1ed0c42c.chunk.js": "/Portfolio/static/js/787.1ed0c42c.chunk.js",
     "static/media/portfolio-pic.jpg": "/Portfolio/static/media/portfolio-pic.0c363991a16fe67465b9.jpg",
     "static/media/appDownloads.jpg": "/Portfolio/static/media/appDownloads.81920cc385b35c7ddc83.jpg",
-    "static/media/screen-shot-arrow.svg": "/Portfolio/static/media/screen-shot-arrow.857aef1a3b88b773d9a560f4f7ad68df.svg",
+    "static/media/screen-shot-arrow.svg": "/Portfolio/static/media/screen-shot-arrow.c5518773177f74dc2a5f29a580c3e9eb.svg",
     "static/media/androidLogo.svg": "/Portfolio/static/media/androidLogo.3239fbac70a839c3708c93f7e91ecacc.svg",
     "static/media/styledComponents.svg": "/Portfolio/static/media/styledComponents.d50016c47591986df2836827a9f79ee5.svg",
     "static/media/appleLaptopLogo.svg": "/Portfolio/static/media/appleLaptopLogo.7c163d8d7430ff68e75f75f0f907589a.svg",
@@ -19,15 +19,16 @@
     "index.html": "/Portfolio/index.html",
     "static/media/tailwindcss.svg": "/Portfolio/static/media/tailwindcss.095fbe13b63c7a143857a6f46e8cf5ec.svg",
     "static/media/swift.svg": "/Portfolio/static/media/swift.c390b8a571bf6c0665410c47765f540c.svg",
+    "static/media/appleLogo.svg": "/Portfolio/static/media/appleLogo.c70025e3d516d2c66ab93b20c5cd669c.svg",
     "static/media/css-3.svg": "/Portfolio/static/media/css-3.4e47c3122b8d2476a02f97dcfcb28640.svg",
     "static/media/html-1.svg": "/Portfolio/static/media/html-1.f318c8b1d5945fa9adc827ae94849cb1.svg",
     "static/media/react.svg": "/Portfolio/static/media/react.5afb20866b4364603d3669cfe7a7af02.svg",
     "main.e6c13ad2.css.map": "/Portfolio/static/css/main.e6c13ad2.css.map",
-    "main.59e79c7c.js.map": "/Portfolio/static/js/main.59e79c7c.js.map",
+    "main.893f30dc.js.map": "/Portfolio/static/js/main.893f30dc.js.map",
     "787.1ed0c42c.chunk.js.map": "/Portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.59e79c7c.js"
+    "static/js/main.893f30dc.js"
   ]
 }
