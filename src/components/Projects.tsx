@@ -15,7 +15,7 @@ import { ReactComponent as TypescriptLogo } from "../resources/typescript.svg";
 import { ReactComponent as StyledComponentsLogo } from "../resources/styledComponents.svg";
 import { ReactComponent as SwiftLogo } from "../resources/swift.svg";
 import { ReactComponent as AppleLaptopLogo } from "../resources/appleLaptopLogo.svg";
-import {ReactComponent as ScreenShotArrow} from "../resources/screen-shot-arrow.svg"
+import { ReactComponent as ScreenShotArrow } from "../resources/screen-shot-arrow.svg";
 import appDownloads from "../resources/appDownloads.jpg";
 import { FunctionComponent } from "react";
 import { MyTheme } from "../theme/globalStyles";
@@ -41,7 +41,7 @@ const StyledProjects = styled.div`
         .front,
         .back {
           border-radius: 1em;
-          min-height: 360px;
+          min-height: 370px;
         }
       }
     }
@@ -69,8 +69,11 @@ const StyledProjects = styled.div`
       }
     }
   }
+  .links {
+    /* margin-top: 2rem; */
+  }
   .apple {
-    width: 100px;
+    width: 80px;
     margin-inline: auto;
     transition: all 0.2s ease-in-out;
   }
@@ -79,17 +82,17 @@ const StyledProjects = styled.div`
   }
   .apple-wrapper {
     position: relative;
-    width: 100px;
-    margin-top: 2rem;
+    width: 80px;
+    /* margin-bottom: 2rem; */
     margin-inline: auto;
   }
   .screen-shot-arrow {
     position: absolute;
-    top: -24px;
-    left: -35px;
+    top: -14px;
+    left: -70px;
     width: 90px;
-    transform: rotate3d(1,2,4,-20deg);
-    stroke: ${p => p.theme.colors.primaryBlue};
+    transform: rotate3d(1, 2, 4, -30deg);
+    stroke: ${(p) => p.theme.colors.primaryBlue};
   }
 `;
 
@@ -252,11 +255,16 @@ const Projects: FunctionComponent<ProjectProps> = () => {
           frontComponents={[
             <p className="">
               This was an iOS app I made to help my co-workers with
-              telecommunication's color code. I used apple's Swift programming
-              language. I no longer pay to keep it on the app store, however I
-              plan to release a React Native app for both iOS and Android in the
-              future.
+              telecommunication's color code. I no longer pay to keep it on the
+              app store. However I do have a screen shot of the app statistics.
             </p>,
+            <div className="apple-wrapper">
+              <AppleLaptopLogo
+                className="apple"
+                onClick={() => setShowModal(true)}
+              />
+              <ScreenShotArrow className="screen-shot-arrow" />
+            </div>,
           ]}
           backComponents={[
             <h1 className="card-title">
@@ -275,13 +283,6 @@ const Projects: FunctionComponent<ProjectProps> = () => {
               pretty well. I do not have the code, but I do have a screenshot
               from apple's developer portal here.
             </p>,
-            <div className="apple-wrapper">
-              <AppleLaptopLogo
-                className="apple"
-                onClick={() => setShowModal(true)}
-              />
-              <ScreenShotArrow className="screen-shot-arrow" />
-            </div>,
           ]}
         />
       </div>

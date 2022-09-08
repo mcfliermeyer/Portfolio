@@ -18,7 +18,7 @@ function App() {
   const projectRef = useRef<HTMLInputElement>(null);
   const skillsRef = useRef<HTMLInputElement>(null);
   const contactRef = useRef<HTMLInputElement>(null);
-  const overlayOffset = 62;
+  const overlayOffset = 22;
 
   const scrollToElement = (element: React.RefObject<HTMLDivElement>) => {
     const elHeight = element.current?.getBoundingClientRect().top || 0;

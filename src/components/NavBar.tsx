@@ -101,11 +101,7 @@ const StyledNavBar = styled.div`
     width: 0;
     height: 0;
     transform: translate(62%, -20%) rotate(110deg);
-    background: radial-gradient(
-      farthest-corner at 340px 580px,
-      #ec6051 25%,
-      #ffc753 55%
-    );
+    background: ${(p) => p.theme.colors.primaryPinkish};
     border-radius: 50%;
     transition: 0.15s ease-in;
   }
