@@ -5,8 +5,8 @@ const StyledHamburgerMenuButton = styled.button`
   background-color: transparent;
   .hamburger-lines {
     display: block;
-    width: 4rem;
-    height: 4px;
+    width: 3rem;
+    height: 3px;
     background-color: white;
     position: relative;
     transition: 0.25s ease-in-out;
@@ -17,8 +17,8 @@ const StyledHamburgerMenuButton = styled.button`
   }
   .hamburger-lines::before {
     content: "";
-    width: 4rem;
-    height: 4px;
+    width: 3rem;
+    height: 3px;
     background-color: white;
     position: absolute;
     left: 0;
@@ -29,8 +29,8 @@ const StyledHamburgerMenuButton = styled.button`
   }
   .hamburger-lines::after {
     content: "";
-    width: 4rem;
-    height: 4px;
+    width: 3rem;
+    height: 3px;
     background-color: white;
     position: absolute;
     left: 0;
@@ -38,6 +38,20 @@ const StyledHamburgerMenuButton = styled.button`
     top: var(--after-line-top);
     transform: var(--after-line-transform);
     transition: 0.25s ease-in-out;
+  }
+  @media (min-width: 1200px) {
+    .hamburger-lines {
+      width: 4rem;
+      height: 4px;
+    }
+    .hamburger-lines::before {
+      width: 4rem;
+      height: 4px;
+    }
+    .hamburger-lines::after {
+      width: 4rem;
+      height: 4px;
+    }
   }
 `;
 

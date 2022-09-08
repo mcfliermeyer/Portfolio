@@ -63,9 +63,9 @@ const StyledNavBar = styled.div`
   ${HamburgerMenu.Styled} {
     position: absolute;
     z-index: 2;
-    top: 0;
+    top: 0px;
     right: 0.75rem;
-    bottom: 0;
+    bottom: 0px;
   }
   ${HamburgerMenu.Styled}:hover {
     cursor: pointer;
@@ -124,7 +124,8 @@ export const NavBar = (props: NavProps) => {
   const navRef = useRef<HTMLDivElement>(null);
 
   const hamburgerRef = useRef<HTMLSpanElement>(null);
-  const hamburgerLineSpacing = "16px";
+  const hamburgerLineSpacing = document.body.offsetWidth < 1400 ?  "12px": "16px";
+  console.log(hamburgerLineSpacing)
   const root = document.documentElement;
 
   //before psuedo element
