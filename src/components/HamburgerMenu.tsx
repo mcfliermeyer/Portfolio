@@ -10,6 +10,7 @@ const StyledHamburgerMenuButton = styled.button`
     background-color: white;
     position: relative;
     transition: 0.25s ease-in-out;
+    visibility: hidden;
   }
   .hamburger-lines.open {
     background-color: transparent;
@@ -41,6 +42,7 @@ const StyledHamburgerMenuButton = styled.button`
   }
   @media (min-width: 1200px) {
     .hamburger-lines {
+      visibility: visible;
       width: 4rem;
       height: 4px;
     }

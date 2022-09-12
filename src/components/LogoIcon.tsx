@@ -1,7 +1,9 @@
-import React from "react";
+import styled from "styled-components";
 
-export const LogoIconSVG = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg width={props.width} height={props.height} viewBox={props.viewBox}>
+const StyledLogoIcon = styled.svg``;
+
+const LogoIcon = () => (
+  <svg viewBox="-5 -5 320 320">
     <circle
       style={{ stroke: "#000000", fill: "#fe7868", strokeOpacity: 1 }}
       cx="145"
@@ -43,3 +45,5 @@ export const LogoIconSVG = (props: React.SVGProps<SVGSVGElement>) => (
     ></path>
   </svg>
 );
+LogoIcon.Styled = StyledLogoIcon;
+export default LogoIcon;

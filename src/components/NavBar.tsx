@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import styled from "styled-components";
-import { LogoIconSVG } from "./LogoIcon";
+import { ReactComponent as LogoIcon } from "../resources/logoIcon.svg";
 import HamburgerMenu from "./HamburgerMenu";
 
 interface NavProps {
@@ -11,6 +11,21 @@ interface NavProps {
   navToSkills: () => void;
   navToContact: () => void;
 }
+
+const StyledLogoIcon = styled(LogoIcon)`
+  width: 110px;
+  width: 110px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+
+  @media (min-width: 1200px) {
+    width: 170px;
+    width: 170px;
+    top: 5px;
+    left: 5px;
+  }
+`;
 
 const StyledNavBar = styled.div`
   :root {
@@ -33,11 +48,7 @@ const StyledNavBar = styled.div`
   right: 0;
   z-index: 1;
   border-bottom: 1px black solid;
-  & > svg {
-    position: absolute;
-    top: 5px;
-    left: 10px;
-  }
+
   h1 {
     margin: 0;
   }
@@ -124,8 +135,9 @@ export const NavBar = (props: NavProps) => {
   const navRef = useRef<HTMLDivElement>(null);
 
   const hamburgerRef = useRef<HTMLSpanElement>(null);
-  const hamburgerLineSpacing = document.body.offsetWidth < 1400 ?  "12px": "16px";
-  console.log(hamburgerLineSpacing)
+  const hamburgerLineSpacing =
+    document.body.offsetWidth < 1400 ? "12px" : "16px";
+  console.log(hamburgerLineSpacing);
   const root = document.documentElement;
 
   //before psuedo element
@@ -182,7 +194,7 @@ export const NavBar = (props: NavProps) => {
   };
   return (
     <StyledNavBar>
-      <LogoIconSVG height={130} width={130} viewBox="-5 -5 320 320" />
+      <StyledLogoIcon />
       <div className="name-container">
         <h1 className="first-name">MARK</h1>
         <h1 className="last-name">Meyer</h1>
