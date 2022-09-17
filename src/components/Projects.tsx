@@ -278,10 +278,9 @@ const Projects: FunctionComponent<ProjectProps> = () => {
               work were having a hard time with telecommunication color code. I
               had just started to learn Swift. I recognized a problem, and this
               app was my solution. It got a great reception. Although I really
-              only told maybe 20 co-workers about it. I entually got messages
+              only told maybe 20 co-workers about it. I eventually got messages
               from all across the country about it. For a niche app, it did
-              pretty well. I do not have the code, but I do have a screenshot
-              from apple's developer portal here.
+              pretty well.
             </p>,
           ]}
         />

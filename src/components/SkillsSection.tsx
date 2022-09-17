@@ -98,7 +98,7 @@ const StyledSkillsSection = styled.section`
         .front,
         .back {
           border-radius: 1em;
-          min-height: 400px;
+          min-height: 450px;
         }
       }
     }
@@ -156,11 +156,26 @@ const SkillsSection = () => {
           frontComponents={[
             <p>
               I am experienced in web design and coding web pages from design
-              programs like Figma. I am familiar with HTML, CSS, and Javascript.
-              As well as some Javascript frameworks and libraries. Each website
-              I make, I have added another framework or library to keep learning
-              new things.
+              programs like Figma. Web development has many technologies to work
+              with, below are the additional frameworks and libraries I
+              currently and comfortable with.
             </p>,
+            <h1 className="card-title">Web Tech</h1>,
+            <h2 className="subtitle">I am comfortable with</h2>,
+            <div className="web-dev-icons">
+              <Tooltip content="Typescript">
+                <StyledTypescriptLogo />
+              </Tooltip>
+              <Tooltip content="React">
+                <StyledReactLogo />
+              </Tooltip>
+              <Tooltip content="NodeJS">
+                <StyledNodeLogo />
+              </Tooltip>
+              <Tooltip content="Tailwind Css">
+                <StyledTailwindLogo />
+              </Tooltip>
+            </div>,
           ]}
           backComponents={[
             <p>
@@ -173,36 +188,6 @@ const SkillsSection = () => {
               there was. I will be forever learning as a web developer and I
               couldn't be more excited.
             </p>,
-            <h1 className="card-title">Web Tech</h1>,
-            <h2 className="subtitle">I am comfortable with</h2>,
-            <div className="web-dev-icons">
-              <Tooltip content="Javascript">
-                <StyledJavascriptLogo />
-              </Tooltip>
-              <Tooltip content="Typescript">
-                <StyledTypescriptLogo />
-              </Tooltip>
-              <Tooltip content="React">
-                <StyledReactLogo />
-              </Tooltip>
-              <Tooltip content="NodeJS">
-                <StyledNodeLogo />
-              </Tooltip>
-              <Tooltip content="HTML">
-                <StyledHtmlLogo />
-              </Tooltip>
-              <Tooltip content="CSS">
-                <StyledCssLogo />
-              </Tooltip>
-              <Tooltip content="Styled-Components">
-                <StyledStyledComponentsLogo />
-              </Tooltip>
-              <Tooltip content="Tailwind Css">
-                <StyledTailwindLogo />
-              </Tooltip>
-            </div>,
-
-            // <StyledTechStackIconWrapper className="tech-stack-icons" icons={[]} />,
           ]}
         />
         <FlipCard
@@ -217,32 +202,33 @@ const SkillsSection = () => {
             <p>
               Mobile app development is something I started as a hobby and
               eventually released an app for iOS. I personally released the iOS
-              version of my app but I helped my friend with his Android release.
-              So I am comfortable with iOS and familiar with Android operating
+              version of my app and I helped my friend with his Android release.
+              I am comfortable with iOS and familiar with Android operating
               systems.
             </p>,
+            <h1 className="card-title">Mobile Platforms</h1>,
             <div className="mobile-icons">
-              <StyledAndroidLogo />
-              <StyledAppleLogo />
+              <Tooltip content="Android">
+                <StyledAndroidLogo />
+              </Tooltip>
+              <Tooltip content="Apple">
+                <StyledAppleLogo />
+              </Tooltip>
             </div>,
           ]}
           backComponents={[
             <p>
-              Writing iOS apps with Swift was a great experience. I had an app
-              on the app store for 2 years and recieved a few messages about how
-              it helped people. That was a great feeling. It is still being used
-              today, although I am no longer paying to keep it on the app store.
+              Writing iOS apps with the apple programming language "Swift" was a
+              great experience. I had an app on the app store for two years and
+              received a messages about how it helped people. I made the app
+              specifically to help my co-workers in telecommunications. It was
+              not meant to be something to make money or really do anything
+              except help with a very specific problem. The fact that the app
+              ended up with almost 4,000 downloads and I was being contacted
+              from across the country, was such a great feeling. It is
+              still being used today, although I am no longer paying to keep it
+              on the app store.
             </p>,
-            <div className="bottom-anchor">
-              <h1 className="card-title">Mobile App Tech</h1>
-              <h2 className="subtitle">I am comfortable with</h2>{" "}
-              <Tooltip content="Android">
-                <StyledAndroidLogo />
-              </Tooltip>
-              <Tooltip content="Swift">
-                <StyledSwiftLogo />
-              </Tooltip>
-            </div>,
           ]}
         />
       </div>
