@@ -255,10 +255,9 @@ const Projects: FunctionComponent<ProjectProps> = () => {
           frontComponents={[
             <p className="">
               This was an iOS app I released in 2018 to help my co-workers with
-              telecommunication's color code. I no longer pay to keep it on the
-              app store. However I am currently remaking the app for iOS and
-              Android and I do have a screen shot of the app statistics from
-              Apple.
+              telecommunication's color code. I am currently remaking the app
+              for iOS and Android. Here is a screenshot of the app's Apple
+              statistics.
             </p>,
             <div className="apple-wrapper">
               <AppleLaptopLogo
