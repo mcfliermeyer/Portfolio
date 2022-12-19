@@ -20,11 +20,13 @@ const AboutMeSection = (props: Props) => {
     <StyledAboutMeSection>
       <NewSection title="I am" subtitle="a web developer" />
       <p className="about-me-summary">
-        Hello, my name is Mark Meyer. I am a web developer. I have a passion for
-        troubleshooting and problem solving. Web app development is filled with
-        tiny puzzles for me to figure out every day. I recently decided to take
-        my passion for problem solving and move it into a career. So here I am,
-        searching for more puzzles to solve.
+        I am a mobile and web app developer with a well received iOS app I
+        released in 2018. Hello, my name is Mark Meyer. I have a passion for
+        troubleshooting and problem solving. Logic and troubleshooting is a
+        skill I developed and sharpened in my current career as a
+        telecommunications technician. I decided to take my passion for problem
+        solving and move it into a career. So here I am, searching for more
+        puzzles to solve.
       </p>
     </StyledAboutMeSection>
   );
