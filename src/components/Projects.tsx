@@ -123,7 +123,7 @@ const Projects: FunctionComponent<ProjectProps> = () => {
             backgroundColor: cardColor,
             ctaColor: ctaColor,
             ctaFontColor: ctaFontColor,
-            isBottom: true,
+            isTop: true,
           }}
           title={"Color Code Finder"}
           frontComponents={[
@@ -169,7 +169,6 @@ const Projects: FunctionComponent<ProjectProps> = () => {
             backgroundColor: cardColor,
             ctaColor: ctaColor,
             ctaFontColor: ctaFontColor,
-            isTop: true,
           }}
           title={"This Portfolio"}
           frontComponents={[
@@ -244,6 +243,7 @@ const Projects: FunctionComponent<ProjectProps> = () => {
             backgroundColor: cardColor,
             ctaColor: ctaColor,
             ctaFontColor: ctaFontColor,
+            isBottom: true,
           }}
           title={"Quizzical"}
           frontComponents={[
