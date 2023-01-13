@@ -83,13 +83,12 @@ const StyledProjects = styled.div`
   .apple-wrapper {
     position: relative;
     width: 80px;
-    /* margin-bottom: 2rem; */
-    margin-inline: auto;
+    display: inline;
   }
   .screen-shot-arrow {
     position: absolute;
-    top: -14px;
-    left: -70px;
+    bottom: 64px;
+    right: 20px;
     width: 90px;
     transform: rotate3d(1, 2, 4, -30deg);
     stroke: ${(p) => p.theme.colors.primaryBlue};
@@ -119,6 +118,52 @@ const Projects: FunctionComponent<ProjectProps> = () => {
       )}
       <NewSection title={"Projects"} />
       <div className="large-screen-flex">
+        <FlipCard
+          overload={{
+            backgroundColor: cardColor,
+            ctaColor: ctaColor,
+            ctaFontColor: ctaFontColor,
+            isBottom: true,
+          }}
+          title={"Color Code Finder"}
+          frontComponents={[
+            <p className="">
+              This was an iOS app I released in 2018 to help my co-workers with
+              telecommunication's color code. I am currently remaking the app
+              for iOS and Android.
+            </p>,
+
+            <div className="links">
+              <GithubIconWithLink
+                link={"https://github.com/mcfliermeyer/ColorCodeFinder"}
+              />
+              <div className="apple-wrapper">
+                <AppleLaptopLogo
+                  className="apple"
+                  onClick={() => setShowModal(true)}
+                />
+                <ScreenShotArrow className="screen-shot-arrow" />
+              </div>
+            </div>,
+          ]}
+          backComponents={[
+            <h1 className="card-title">
+              <LogoWithPositioning top={"-20px"} left={"-70px"} width={"60px"}>
+                <SwiftLogo />
+              </LogoWithPositioning>
+              Swift
+            </h1>,
+            <p>
+              Color Code Finder was the first app I deployed anywhere. People at
+              work were having a hard time with telecommunication color code. I
+              had just started to learn Swift. I recognized a problem, and this
+              app was my solution. It got a great reception. Although I really
+              only told maybe 20 co-workers about it. I eventually got messages
+              from all across the country about it. For a niche app, it did
+              pretty well.
+            </p>,
+          ]}
+        />
         <FlipCard
           overload={{
             backgroundColor: cardColor,
@@ -241,47 +286,6 @@ const Projects: FunctionComponent<ProjectProps> = () => {
               organization of css logic. It allows for quick changes to css
               without having to dig through a large style-sheet. Themes and
               global styles makes styling of components a breeze.
-            </p>,
-          ]}
-        />
-        <FlipCard
-          overload={{
-            backgroundColor: cardColor,
-            ctaColor: ctaColor,
-            ctaFontColor: ctaFontColor,
-            isBottom: true,
-          }}
-          title={"Color Code Finder"}
-          frontComponents={[
-            <p className="">
-              This was an iOS app I released in 2018 to help my co-workers with
-              telecommunication's color code. I am currently remaking the app
-              for iOS and Android. Here is a screenshot of the app's Apple
-              statistics.
-            </p>,
-            <div className="apple-wrapper">
-              <AppleLaptopLogo
-                className="apple"
-                onClick={() => setShowModal(true)}
-              />
-              <ScreenShotArrow className="screen-shot-arrow" />
-            </div>,
-          ]}
-          backComponents={[
-            <h1 className="card-title">
-              <LogoWithPositioning top={"-20px"} left={"-70px"} width={"60px"}>
-                <SwiftLogo />
-              </LogoWithPositioning>
-              Swift
-            </h1>,
-            <p>
-              Color Code Finder was the first app I deployed anywhere. People at
-              work were having a hard time with telecommunication color code. I
-              had just started to learn Swift. I recognized a problem, and this
-              app was my solution. It got a great reception. Although I really
-              only told maybe 20 co-workers about it. I eventually got messages
-              from all across the country about it. For a niche app, it did
-              pretty well.
             </p>,
           ]}
         />
