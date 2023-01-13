@@ -84,6 +84,7 @@ const StyledProjects = styled.div`
     position: relative;
     width: 80px;
     display: inline;
+    margin-inline: 20px;
   }
   .screen-shot-arrow {
     position: absolute;
